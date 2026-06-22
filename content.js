@@ -110,7 +110,7 @@ window.PORTFOLIO = {
       slug: "project-01.html",
       number: "01",
       art: "courtyard",
-      cover: "assets/portfolio/project-01-cover.jpg?v=2",
+      cover: "assets/portfolio/project-01-cover.jpg",
       images: ["assets/portfolio/page-03.jpg", "assets/portfolio/page-04.jpg", "assets/portfolio/page-05.jpg", "assets/portfolio/page-06.jpg", "assets/portfolio/page-07.jpg", "assets/portfolio/page-09.jpg"],
       zh: {
         title: "方台听市 层楼望阙",
@@ -143,7 +143,7 @@ window.PORTFOLIO = {
       slug: "project-02.html",
       number: "02",
       art: "cliff",
-      cover: "assets/portfolio/project-02-cover.jpg?v=2",
+      cover: "assets/portfolio/project-02-cover.jpg",
       images: ["assets/portfolio/page-10.jpg", "assets/portfolio/page-11.jpg", "assets/portfolio/page-12.jpg", "assets/portfolio/page-15.jpg", "assets/portfolio/page-17.jpg", "assets/portfolio/page-19.jpg"],
       zh: {
         title: "古脉新序 叠织井巷",
@@ -176,7 +176,7 @@ window.PORTFOLIO = {
       slug: "project-03.html",
       number: "03",
       art: "market",
-      cover: "assets/portfolio/project-03-cover.jpg?v=2",
+      cover: "assets/portfolio/project-03-cover.jpg",
       images: ["assets/portfolio/page-20.jpg", "assets/portfolio/page-21.jpg", "assets/portfolio/page-22.jpg", "assets/portfolio/page-23.jpg", "assets/portfolio/page-25.jpg", "assets/portfolio/page-26.jpg"],
       zh: {
         title: "无界 · 共生",
@@ -209,7 +209,7 @@ window.PORTFOLIO = {
       slug: "project-04.html",
       number: "04",
       art: "kiln",
-      cover: "assets/portfolio/project-04-cover.jpg?v=2",
+      cover: "assets/portfolio/project-04-cover.jpg",
       images: ["assets/portfolio/page-27.jpg", "assets/portfolio/page-28.jpg", "assets/portfolio/page-29.jpg", "assets/portfolio/page-30.jpg"],
       zh: {
         title: "智慧颐居",

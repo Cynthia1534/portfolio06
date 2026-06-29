@@ -4,6 +4,18 @@
   var DATA = window.PORTFOLIO;
   var page = document.body.dataset.page || "home";
   var currentLang = localStorage.getItem("portfolio-language") || "zh";
+  var ACCENTS = ["#FFD600", "#F05A49", "#EA86B2", "#29AEE1", "#08AE68"];
+  var GUIDE_ROLES = [
+    "assets/portfolio/guide-character-0.png",
+    "assets/portfolio/guide-character-1.png",
+    "assets/portfolio/guide-character-2.png",
+    "assets/portfolio/guide-character-3.png",
+    "assets/portfolio/guide-character-4.png",
+    "assets/portfolio/guide-character-5.png"
+  ];
+  var guideButton = null;
+  var activeGuideState = "home";
+  var activeGuideRole = 0;
   if (!DATA.translations[currentLang]) currentLang = "zh";
 
   function esc(value) {
@@ -16,6 +28,304 @@
     return path.split(".").reduce(function (value, key) {
       return value && value[key] !== undefined ? value[key] : "";
     }, object);
+  }
+
+  function bearSVG() {
+    return '<img class="bear-svg bear-character" data-guide-character src="' + GUIDE_ROLES[0] + '" alt="">';
+  }
+
+  function guideLabel(state) {
+    var zh = {
+      home: "前往个人简介", about: "前往建筑设计项目", architecture: "前往荣誉奖项",
+      others: "前往实习经历", experience: "前往联系部分", contact: "返回首页", hero: "前往项目说明", brief: "前往项目图片",
+      media: "前往项目导航", next: "进入下一个项目"
+    };
+    var en = {
+      home: "Go to profile", about: "Go to architecture projects", architecture: "Go to honors",
+      others: "Go to experience", experience: "Go to contact", contact: "Back to home", hero: "Go to project brief", brief: "Go to project images",
+      media: "Go to project navigation", next: "Open next project"
+    };
+    return (currentLang === "zh" ? zh : en)[state] || (currentLang === "zh" ? "继续浏览" : "Continue");
+  }
+
+  function setGuideState(state, colorIndex) {
+    if (!guideButton) return;
+    activeGuideState = state;
+    guideButton.dataset.state = state;
+    setGuideCharacter(colorIndex % GUIDE_ROLES.length, false);
+    guideButton.style.setProperty("--bear-accent", ACCENTS[colorIndex % ACCENTS.length]);
+    guideButton.setAttribute("aria-label", guideLabel(state));
+    guideButton.title = guideLabel(state);
+    var hint = guideButton.querySelector(".guide-hint");
+    if (hint) hint.textContent = guideLabel(state);
+    guideButton.querySelectorAll(".guide-step").forEach(function (step, index) {
+      step.classList.toggle("active", index === colorIndex % 5);
+    });
+  }
+
+  function setGuideCharacter(index, animate) {
+    if (!guideButton) return;
+    var img = guideButton.querySelector("[data-guide-character]");
+    if (!img) return;
+    activeGuideRole = (index + GUIDE_ROLES.length) % GUIDE_ROLES.length;
+    var nextSrc = GUIDE_ROLES[activeGuideRole];
+    if (img.getAttribute("src") !== nextSrc) img.setAttribute("src", nextSrc);
+    guideButton.dataset.role = String(activeGuideRole);
+    if (animate) {
+      guideButton.classList.remove("is-switching");
+      void guideButton.offsetWidth;
+      guideButton.classList.add("is-switching");
+      window.setTimeout(function () {
+        if (guideButton) guideButton.classList.remove("is-switching");
+      }, 460);
+    }
+  }
+
+  function setupSectionDots() {
+    document.querySelectorAll(".section-accent-dots").forEach(function (layer) { layer.remove(); });
+    var targets = page === "home"
+      ? Array.prototype.slice.call(document.querySelectorAll("main > section[id]"))
+      : Array.prototype.slice.call(document.querySelectorAll(".project-brief, .project-media, .project-next"));
+    targets.forEach(function (target, sectionIndex) {
+      var layer = document.createElement("span");
+      layer.className = "section-accent-dots accent-scene-" + ((sectionIndex % 5) + 1);
+      layer.setAttribute("aria-hidden", "true");
+      ["solid", "ring", "halftone"].forEach(function (type, shapeIndex) {
+        var shape = document.createElement("i");
+        shape.className = "accent-shape accent-" + type;
+        shape.style.setProperty("--shape-color", ACCENTS[(sectionIndex + shapeIndex * 2) % ACCENTS.length]);
+        layer.appendChild(shape);
+      });
+      target.appendChild(layer);
+    });
+    setupAccentParallax(targets);
+  }
+
+  function setupAccentParallax(targets) {
+    targets.forEach(function (target) {
+      if (target.dataset.accentBound) return;
+      target.dataset.accentBound = "true";
+      target.addEventListener("pointermove", function (event) {
+        if (event.pointerType === "touch" || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        var layer = target.querySelector(".section-accent-dots");
+        if (!layer) return;
+        var rect = target.getBoundingClientRect();
+        var x = ((event.clientX - rect.left) / rect.width - .5) * 2;
+        var y = ((event.clientY - rect.top) / rect.height - .5) * 2;
+        layer.style.setProperty("--move-x-1", (x * 8).toFixed(1) + "px");
+        layer.style.setProperty("--move-y-1", (y * 8).toFixed(1) + "px");
+        layer.style.setProperty("--move-x-2", (x * -13).toFixed(1) + "px");
+        layer.style.setProperty("--move-y-2", (y * -13).toFixed(1) + "px");
+        layer.style.setProperty("--move-x-3", (x * 18).toFixed(1) + "px");
+        layer.style.setProperty("--move-y-3", (y * 18).toFixed(1) + "px");
+      });
+      target.addEventListener("pointerleave", function () {
+        var layer = target.querySelector(".section-accent-dots");
+        if (layer) layer.removeAttribute("style");
+      });
+    });
+  }
+
+  function setupProjectCardInteractions() {
+    var cards = document.querySelectorAll(".project-card");
+    cards.forEach(function (card, index) {
+      card.style.setProperty("--card-accent", ACCENTS[index % ACCENTS.length]);
+      if (card.dataset.tiltBound) return;
+      card.dataset.tiltBound = "true";
+      card.addEventListener("pointermove", function (event) {
+        if (event.pointerType === "touch" || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        card.classList.add("is-pointing");
+        var rect = card.getBoundingClientRect();
+        var x = (event.clientX - rect.left) / rect.width - .5;
+        var y = (event.clientY - rect.top) / rect.height - .5;
+        card.style.setProperty("--tilt-x", (-y * 1.2).toFixed(2) + "deg");
+        card.style.setProperty("--tilt-y", (x * 1.2).toFixed(2) + "deg");
+        var art = card.querySelector(".project-art");
+        if (art) {
+          var artRect = art.getBoundingClientRect();
+          card.style.setProperty("--lens-x", (event.clientX - artRect.left).toFixed(1) + "px");
+          card.style.setProperty("--lens-y", (event.clientY - artRect.top).toFixed(1) + "px");
+        }
+      });
+      card.addEventListener("pointerleave", function () {
+        card.classList.remove("is-pointing");
+        card.style.setProperty("--tilt-x", "0deg");
+        card.style.setProperty("--tilt-y", "0deg");
+      });
+    });
+  }
+
+  function setupImageInteractions() {
+    if (page === "project") return;
+    document.querySelectorAll(".project-hero-art, .media-frame").forEach(function (frame, index) {
+      frame.style.setProperty("--image-accent", ACCENTS[index % ACCENTS.length]);
+      if (!frame.querySelector(".image-lens")) {
+        var lens = document.createElement("span");
+        lens.className = "image-lens";
+        lens.setAttribute("aria-hidden", "true");
+        frame.appendChild(lens);
+      }
+      if (frame.dataset.lensBound) return;
+      frame.dataset.lensBound = "true";
+      frame.addEventListener("pointermove", function (event) {
+        if (event.pointerType === "touch" || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        frame.classList.add("is-pointing");
+        var rect = frame.getBoundingClientRect();
+        frame.style.setProperty("--image-x", (event.clientX - rect.left).toFixed(1) + "px");
+        frame.style.setProperty("--image-y", (event.clientY - rect.top).toFixed(1) + "px");
+      });
+      frame.addEventListener("pointerleave", function () {
+        frame.classList.remove("is-pointing");
+      });
+    });
+  }
+
+  function setupHeroMotion() {
+    var hero = document.getElementById("home");
+    if (!hero || hero.dataset.motionBound) return;
+    hero.dataset.motionBound = "true";
+    var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    var isDragging = false;
+    var startX = 0;
+    var startY = 0;
+    var baseRotY = -32;
+    var baseRotX = -12;
+    var currentRotY = baseRotY;
+    var currentRotX = baseRotX;
+    function applyRotation(rotX, rotY) {
+      currentRotX = Math.max(-34, Math.min(12, rotX));
+      currentRotY = rotY;
+      hero.style.setProperty("--model-rot-y", currentRotY.toFixed(2) + "deg");
+      hero.style.setProperty("--model-rot-x", currentRotX.toFixed(2) + "deg");
+    }
+    function update(clientX, clientY) {
+      if (reduceMotion.matches) return;
+      var rect = hero.getBoundingClientRect();
+      var x = ((clientX - rect.left) / rect.width - .5) * 2;
+      var y = ((clientY - rect.top) / rect.height - .5) * 2;
+      hero.style.setProperty("--hero-x", Math.max(-1, Math.min(1, x)).toFixed(3));
+      hero.style.setProperty("--hero-y", Math.max(-1, Math.min(1, y)).toFixed(3));
+      if (!isDragging) applyRotation(baseRotX - y * 9, baseRotY + x * 28);
+    }
+    hero.addEventListener("pointermove", function (event) {
+      if (event.pointerType === "touch") return;
+      if (isDragging) {
+        applyRotation(baseRotX - (event.clientY - startY) * .12, baseRotY + (event.clientX - startX) * .38);
+      }
+      update(event.clientX, event.clientY);
+    });
+    hero.addEventListener("pointerdown", function (event) {
+      if (event.pointerType === "touch" || reduceMotion.matches) return;
+      isDragging = true;
+      startX = event.clientX;
+      startY = event.clientY;
+      baseRotY = currentRotY;
+      baseRotX = currentRotX;
+      hero.classList.add("is-dragging");
+      hero.setPointerCapture(event.pointerId);
+    });
+    hero.addEventListener("pointerup", function (event) {
+      if (!isDragging) return;
+      isDragging = false;
+      baseRotY = currentRotY;
+      baseRotX = currentRotX;
+      hero.classList.remove("is-dragging");
+      if (hero.hasPointerCapture(event.pointerId)) hero.releasePointerCapture(event.pointerId);
+    });
+    hero.addEventListener("pointerleave", function () {
+      if (isDragging) return;
+      hero.style.setProperty("--hero-x", "0");
+      hero.style.setProperty("--hero-y", "0");
+      applyRotation(baseRotX, baseRotY);
+    });
+  }
+
+  function setupGuide() {
+    document.querySelectorAll(".bear-guide").forEach(function (node) { node.remove(); });
+    guideButton = null;
+    return;
+    if (!guideButton) {
+      guideButton = document.createElement("button");
+      guideButton.type = "button";
+      guideButton.className = "bear-guide";
+      guideButton.innerHTML = '<span class="guide-orbit" aria-hidden="true"></span>' +
+        '<span class="guide-hint" aria-hidden="true"></span>' +
+        bearSVG() +
+        '<span class="guide-progress" aria-hidden="true">' +
+        ACCENTS.map(function (color) { return '<i class="guide-step" style="--step-color:' + color + '"></i>'; }).join("") +
+        '</span>';
+      document.body.appendChild(guideButton);
+      guideButton.addEventListener("click", function () {
+        setGuideCharacter(activeGuideRole + 1, true);
+        navigateWithGuide();
+      });
+      guideButton.addEventListener("pointermove", function (event) {
+        if (event.pointerType === "touch") return;
+        var rect = guideButton.getBoundingClientRect();
+        var x = (event.clientX - rect.left) / rect.width - .5;
+        var y = (event.clientY - rect.top) / rect.height - .5;
+        guideButton.style.setProperty("--guide-ry", (x * 10).toFixed(2) + "deg");
+        guideButton.style.setProperty("--guide-rx", (-y * 8).toFixed(2) + "deg");
+      });
+      guideButton.addEventListener("pointerleave", function () {
+        guideButton.style.setProperty("--guide-rx", "0deg");
+        guideButton.style.setProperty("--guide-ry", "0deg");
+      });
+    }
+    if (page === "home") updateHomeGuide();
+    else updateProjectGuide();
+  }
+
+  function navigateWithGuide() {
+    if (page === "home") {
+      var order = ["home", "about", "architecture", "others", "experience", "contact"];
+      var index = order.indexOf(activeGuideState);
+      var targetId = activeGuideState === "contact" ? "home" : order[Math.min(index + 1, order.length - 1)];
+      var target = document.getElementById(targetId);
+      if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+      return;
+    }
+    var targets = Array.prototype.slice.call(document.querySelectorAll(".project-brief, .project-media, .project-next"));
+    var nextTarget = targets.find(function (target) {
+      return target.getBoundingClientRect().top > window.innerHeight * .28;
+    });
+    if (nextTarget) {
+      nextTarget.scrollIntoView({ behavior: "smooth", block: "start" });
+      return;
+    }
+    var nextLink = document.querySelector(".project-next a:last-child");
+    if (nextLink) window.location.href = nextLink.href;
+  }
+
+  function updateHomeGuide() {
+    var sections = Array.prototype.slice.call(document.querySelectorAll("main > section[id]"));
+    var position = window.scrollY + window.innerHeight * .38;
+    var active = sections[0] ? sections[0].id : "home";
+    sections.forEach(function (section) { if (position >= section.offsetTop) active = section.id; });
+    var index = Math.max(0, ["home", "about", "architecture", "others", "experience", "contact"].indexOf(active));
+    setGuideState(active, index);
+  }
+
+  function updateProjectGuide() {
+    var brief = document.querySelector(".project-brief");
+    var media = document.querySelector(".project-media");
+    var next = document.querySelector(".project-next");
+    if (!brief || !media || !next) return;
+    var position = window.scrollY + window.innerHeight * .42;
+    var state = "hero";
+    var colorIndex = Number(document.body.dataset.project || 0) % 5;
+    if (position >= brief.offsetTop) state = "brief";
+    if (position >= media.offsetTop) state = "media";
+    if (position >= next.offsetTop) state = "next";
+    setGuideState(state, state === "hero" ? colorIndex : state === "brief" ? colorIndex + 1 : state === "media" ? colorIndex + 2 : colorIndex + 3);
+  }
+
+  function setupAmbientUI() {
+    setupHeroMotion();
+    setupSectionDots();
+    setupProjectCardInteractions();
+    setupImageInteractions();
+    setupGuide();
   }
 
   function artSVG(key, mode) {
@@ -94,6 +404,7 @@
     if (page === "home") {
       renderProjects();
       renderOthers();
+      renderExperience();
       setupRoleCycle(true);
       buildMarquee();
     } else {
@@ -126,9 +437,10 @@
         '<a href="' + project.slug + '" aria-label="' + esc(item.title) + '">' +
         '<div class="project-art">' + (project.cover ? '<img src="' + esc(project.cover) + '" alt="' + esc(item.title) + '" loading="lazy">' : artSVG(project.art, "default")) + '</div>' +
         '<div class="project-info"><div><span class="project-number">PROJECT / ' + project.number + '</span>' +
-        '<h3 class="font-display">' + esc(item.title) + '</h3><p>' + esc(item.type) + ' · ' + esc(item.location) + ' · ' + esc(item.year) + '</p></div>' +
+        '<h3 class="font-display">' + esc(item.title) + '</h3><p>' + esc(item.type) + ' · ' + esc(item.location) + '</p></div>' +
         '<span class="project-arrow" aria-hidden="true">↗</span></div></a></article>';
     }).join("");
+    setupProjectCardInteractions();
     observeReveals();
   }
 
@@ -144,6 +456,87 @@
     });
     grid.innerHTML = '<div class="others-col">' + cols[0].join("") + '</div><div class="others-col">' + cols[1].join("") + '</div>';
     parallaxCards = [];
+  }
+
+  function renderExperience() {
+    var list = document.getElementById("experienceList");
+    if (!list) return;
+    list.innerHTML = DATA.experiences.map(function (experience, index) {
+      var item = experience[currentLang];
+      var highlights = (item.highlights || []).slice(0, 5).map(function (label) {
+        return '<span>' + esc(label) + '</span>';
+      }).join("");
+      return '<article class="experience-item reveal" style="--experience-accent:' + ACCENTS[index % ACCENTS.length] + '">' +
+        '<span class="experience-period">' + esc(experience.period) + '</span>' +
+        '<div><h3>' + esc(item.company) + '</h3><p class="experience-role">' + esc(item.role) + '</p>' +
+        '<div class="experience-tags" aria-hidden="true">' + highlights + '</div>' +
+        '<p class="experience-detail">' + esc(item.detail) + '</p>' +
+        '<button class="experience-more" type="button" data-experience="' + index + '">' + (currentLang === "zh" ? "查看详细经历" : "View details") + '<span aria-hidden="true">↗</span></button></div>' +
+        '</article>';
+    }).join("");
+    bindExperienceDetails();
+    observeReveals();
+  }
+
+  function highlightExperienceText(text, terms, usedTerms) {
+    var html = esc(text);
+    (terms || []).forEach(function (term) {
+      var safe = esc(term);
+      if (!safe || usedTerms[safe]) return;
+      var index = html.indexOf(safe);
+      if (index < 0) return;
+      usedTerms[safe] = true;
+      html = html.slice(0, index) + '<mark>' + safe + '</mark>' + html.slice(index + safe.length);
+    });
+    return html;
+  }
+
+  function ensureExperienceDialog() {
+    var dialog = document.getElementById("experienceDialog");
+    if (dialog) return dialog;
+    dialog = document.createElement("dialog");
+    dialog.className = "experience-dialog";
+    dialog.id = "experienceDialog";
+    dialog.innerHTML = '<button type="button" class="experience-dialog-close" aria-label="Close">×</button>' +
+      '<div class="experience-dialog-inner">' +
+      '<p class="experience-dialog-period" id="experienceDialogPeriod"></p>' +
+      '<h3 id="experienceDialogTitle"></h3>' +
+      '<p class="experience-dialog-role" id="experienceDialogRole"></p>' +
+      '<div class="experience-dialog-tags" id="experienceDialogTags"></div>' +
+      '<div class="experience-dialog-body" id="experienceDialogBody"></div>' +
+      '</div>';
+    document.body.appendChild(dialog);
+    dialog.querySelector(".experience-dialog-close").addEventListener("click", function () { dialog.close(); });
+    dialog.addEventListener("click", function (event) { if (event.target === dialog) dialog.close(); });
+    dialog.addEventListener("close", function () { document.body.classList.remove("lightbox-open"); });
+    return dialog;
+  }
+
+  function bindExperienceDetails() {
+    var dialog = ensureExperienceDialog();
+    document.querySelectorAll("[data-experience]").forEach(function (button) {
+      if (button.dataset.bound) return;
+      button.dataset.bound = "true";
+      button.addEventListener("click", function () {
+        var experience = DATA.experiences[Number(button.dataset.experience)];
+        if (!experience) return;
+        var item = experience[currentLang];
+        var highlights = item.highlights || [];
+        dialog.style.setProperty("--experience-accent", ACCENTS[Number(button.dataset.experience) % ACCENTS.length]);
+        document.getElementById("experienceDialogPeriod").textContent = experience.period;
+        document.getElementById("experienceDialogTitle").textContent = item.company;
+        document.getElementById("experienceDialogRole").textContent = item.role;
+        document.getElementById("experienceDialogTags").innerHTML = highlights.map(function (label) {
+          return '<span>' + esc(label) + '</span>';
+        }).join("");
+        var usedTerms = {};
+        document.getElementById("experienceDialogBody").innerHTML = (item.details || [item.detail]).map(function (paragraph) {
+          return '<p>' + highlightExperienceText(paragraph, highlights, usedTerms) + '</p>';
+        }).join("");
+        dialog.showModal();
+        document.body.classList.add("lightbox-open");
+      });
+    });
   }
 
   var roleTimer;
@@ -232,6 +625,52 @@
     }
   }
 
+  function ensureLightbox() {
+    var dialog = document.getElementById("lightbox");
+    if (dialog) return dialog;
+    dialog = document.createElement("dialog");
+    dialog.className = "lightbox";
+    dialog.id = "lightbox";
+    dialog.innerHTML = '<button type="button" class="lightbox-close" aria-label="Close image">×</button>' +
+      '<div class="lightbox-art" id="lightboxArt"></div>' +
+      '<div class="lightbox-caption"><strong id="lightboxTitle"></strong><span id="lightboxMeta"></span></div>';
+    document.body.appendChild(dialog);
+    return dialog;
+  }
+
+  function bindProjectImageLightbox() {
+    if (page !== "project") return;
+    var dialog = ensureLightbox();
+    document.querySelectorAll(".project-hero-art, .media-frame").forEach(function (frame, index) {
+      var image = frame.querySelector("img");
+      if (!image || frame.dataset.lightboxBound) return;
+      frame.dataset.lightboxBound = "true";
+      frame.setAttribute("tabindex", "0");
+      frame.setAttribute("role", "button");
+      frame.setAttribute("aria-label", currentLang === "zh" ? "单独查看图片" : "View image");
+      function openImage() {
+        document.getElementById("lightboxArt").innerHTML = '<img src="' + esc(image.src) + '" alt="' + esc(image.alt || "") + '">';
+        document.getElementById("lightboxTitle").textContent = image.alt || document.title;
+        document.getElementById("lightboxMeta").textContent = String(index + 1).padStart(2, "0");
+        dialog.showModal();
+        document.body.classList.add("lightbox-open");
+      }
+      frame.addEventListener("click", openImage);
+      frame.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          openImage();
+        }
+      });
+    });
+    if (!dialog.dataset.bound) {
+      dialog.dataset.bound = "true";
+      dialog.querySelector(".lightbox-close").addEventListener("click", function () { dialog.close(); });
+      dialog.addEventListener("click", function (event) { if (event.target === dialog) dialog.close(); });
+      dialog.addEventListener("close", function () { document.body.classList.remove("lightbox-open"); });
+    }
+  }
+
   var marqueeFrame;
   function buildMarquee() {
     var track = document.getElementById("marqueeTrack");
@@ -294,8 +733,21 @@
   function setupHomeNavigation() {
     var header = document.getElementById("siteHeader");
     var sections = Array.prototype.slice.call(document.querySelectorAll("main > section[id]"));
+    document.querySelectorAll('.nav-links a[href^="#"], .brand[href^="#"]').forEach(function (link) {
+      link.addEventListener("click", function (event) {
+        var target = document.querySelector(link.getAttribute("href"));
+        if (!target) return;
+        event.preventDefault();
+        history.pushState(null, "", link.getAttribute("href"));
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
     function onScroll() {
       if (header) header.classList.toggle("scrolled", window.scrollY > 70);
+      var about = document.getElementById("about");
+      var hideCue = window.scrollY > window.innerHeight * .42;
+      if (about) hideCue = hideCue || about.getBoundingClientRect().top < window.innerHeight * .48;
+      document.body.classList.toggle("hide-scroll-cue", hideCue);
       updateParallax();
       var position = window.scrollY + window.innerHeight * .35;
       var active = sections[0] && sections[0].id;
@@ -303,10 +755,14 @@
       document.querySelectorAll(".nav-links a").forEach(function (link) {
         link.classList.toggle("active", link.getAttribute("href") === "#" + active);
       });
+      updateHomeGuide();
     }
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", updateParallax);
+    window.addEventListener("hashchange", onScroll);
     onScroll();
+    requestAnimationFrame(onScroll);
+    setTimeout(onScroll, 180);
   }
 
   function projectTemplate(project, index) {
@@ -354,6 +810,8 @@
       el.classList.toggle("active", el.dataset.langOption === currentLang);
     });
     observeReveals();
+    setupAmbientUI();
+    bindProjectImageLightbox();
   }
 
   function init() {
@@ -364,6 +822,7 @@
       applyLanguage();
       setupLanguageButtons();
       observeReveals();
+      setupAmbientUI();
     } else {
       renderProjectPage();
     }

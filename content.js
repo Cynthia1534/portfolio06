@@ -14,12 +14,12 @@ window.PORTFOLIO = {
       about: {
         eyebrow: "01 / 个人简介",
         title: "从城市出发<br><em class=\"font-display\">回应真实生活</em>",
-        lede: "钟颍杉（Cynthia），北京工业大学建筑学五年制本科生。通过建筑、城市更新、住宅与室内设计，持续探索文化转译、公共性与人的日常体验。",
+        lede: "钟颍杉（Cynthia），北京工业大学建筑学五年制本科生，关注城市更新、公共空间、居住环境、室内改造、文化空间与数字技术等多尺度议题。",
         statement: "善于将 AI 工具融入设计全流程，形成从概念构思、方案深化到图面表达的高效个人工作流。",
         educationLabel: "教育",
-        education: "北京工业大学 · 建筑学（五年制）<br>专业排名 4/50 · 加权平均分 89.92",
+        education: "北京工业大学 · 建筑学（五年制）",
         experienceLabel: "成绩与荣誉",
-        experience: "平均绩点 3.97 · 英语六级 525<br>设计竞赛奖项 · 含国赛一等奖与二等奖",
+        experience: "专业排名 4/50 · 加权平均分 89.92<br>GPA 3.97/4 · 英语六级 525",
         skillsTitle: "专业技能",
         skillsButton: "点击查看",
         modelingLabel: "建模与渲染",
@@ -31,7 +31,7 @@ window.PORTFOLIO = {
         statFocus: "竞赛荣誉"
       },
       projects: {
-        eyebrow: "02 / 课程设计",
+        eyebrow: "02 / 作品集",
         title: "设计<em class=\"font-display\">研究选集</em>",
         lede: "四个本科阶段项目呈现从场地阅读、问题定义、概念推演到图纸与模型表达的完整设计过程。"
       },
@@ -75,12 +75,12 @@ window.PORTFOLIO = {
       about: {
         eyebrow: "01 / Personal Profile",
         title: "Begin with the city<br><em class=\"font-display\">respond to real life</em>",
-        lede: "Zhong Yingshan (Cynthia) is a five-year architecture student at Beijing University of Technology, exploring cultural translation, public life and everyday experience across architectural scales.",
+        lede: "Zhong Yingshan (Cynthia) is a five-year architecture student at Beijing University of Technology, exploring urban renewal, public space, housing, interiors, cultural space and digital tools across architectural scales.",
         statement: "I integrate AI tools into the design workflow, building an efficient personal process from concept framing and design development to visual representation.",
         educationLabel: "Education",
-        education: "Beijing University of Technology · 5-year Architecture<br>Rank 4/50 · Weighted Average 89.92",
+        education: "Beijing University of Technology · 5-year Architecture",
         experienceLabel: "Results & Honors",
-        experience: "GPA 3.97 · CET-6 525<br>Design awards including national first and second prizes",
+        experience: "Rank 4/50 · Weighted Average 89.92<br>GPA 3.97/4 · CET-6 525",
         skillsTitle: "Professional Skills",
         skillsButton: "View details",
         modelingLabel: "Modeling & Rendering",
@@ -92,7 +92,7 @@ window.PORTFOLIO = {
         statFocus: "Design Awards"
       },
       projects: {
-        eyebrow: "02 / Design Studios",
+        eyebrow: "02 / Portfolio",
         title: "Selected <em class=\"font-display\">design research</em>",
         lede: "Four undergraduate projects present a complete process from site reading and question framing to iteration, drawings and models."
       },
@@ -259,8 +259,9 @@ window.PORTFOLIO = {
       slug: "project-01.html",
       number: "01",
       art: "courtyard",
-      cover: "assets/portfolio/project-01-cover.jpg",
-      images: ["assets/portfolio/page-03.jpg", "assets/portfolio/page-04.jpg", "assets/portfolio/page-05.jpg", "assets/portfolio/page-06.jpg", "assets/portfolio/page-07.jpg", "assets/portfolio/page-09.jpg"],
+      cover: "assets/portfolio/project-01-original/01.jpg",
+      cardCover: "assets/portfolio/project-01-card-cover.jpg",
+      images: ["assets/portfolio/project-01-original/01.jpg", "assets/portfolio/project-01-original/02.jpg", "assets/portfolio/project-01-original/03.jpg", "assets/portfolio/project-01-original/04.jpg", "assets/portfolio/project-01-original/05.jpg", "assets/portfolio/project-01-original/06.jpg", "assets/portfolio/project-01-original/07.jpg"],
       zh: {
         title: "方台听市 层楼望阙",
         subtitle: "基于“方、轨、市”文化转译的城景融合型商务酒店设计",
@@ -292,8 +293,9 @@ window.PORTFOLIO = {
       slug: "project-02.html",
       number: "02",
       art: "cliff",
-      cover: "assets/portfolio/project-02-cover.jpg",
-      images: ["assets/portfolio/page-10.jpg", "assets/portfolio/page-11.jpg", "assets/portfolio/page-12.jpg", "assets/portfolio/page-15.jpg", "assets/portfolio/page-17.jpg", "assets/portfolio/page-19.jpg"],
+      cover: "assets/portfolio/project-02-original/01.jpg",
+      cardCover: "assets/portfolio/project-02-card-cover.png",
+      images: ["assets/portfolio/project-02-original/01.jpg", "assets/portfolio/project-02-original/02.jpg", "assets/portfolio/project-02-original/03.jpg", "assets/portfolio/project-02-original/04.jpg", "assets/portfolio/project-02-original/05.jpg", "assets/portfolio/project-02-original/06.jpg", "assets/portfolio/project-02-original/07.jpg", "assets/portfolio/project-02-original/08.jpg", "assets/portfolio/project-02-original/09.jpg", "assets/portfolio/project-02-original/10.jpg"],
       zh: {
         title: "古脉新序 叠织井巷",
         subtitle: "基于“时空蒙太奇”与“商业基因再生”的王府井街区更新改造设计",
@@ -325,8 +327,9 @@ window.PORTFOLIO = {
       slug: "project-03.html",
       number: "03",
       art: "market",
-      cover: "assets/portfolio/project-03-cover.jpg",
-      images: ["assets/portfolio/page-20.jpg", "assets/portfolio/page-21.jpg", "assets/portfolio/page-22.jpg", "assets/portfolio/page-23.jpg", "assets/portfolio/page-25.jpg", "assets/portfolio/page-26.jpg"],
+      cover: "assets/portfolio/project-03-original/01.jpg",
+      cardCover: "assets/portfolio/project-03-card-cover.png",
+      images: ["assets/portfolio/project-03-original/01.jpg", "assets/portfolio/project-03-original/02.jpg", "assets/portfolio/project-03-original/03.jpg", "assets/portfolio/project-03-original/04.jpg", "assets/portfolio/project-03-original/05.jpg", "assets/portfolio/project-03-original/06.jpg", "assets/portfolio/project-03-original/07.jpg"],
       zh: {
         title: "无界 · 共生",
         subtitle: "基于“城市客厅与立体合院”双重空间架构下的住宅区更新设计",
@@ -358,8 +361,9 @@ window.PORTFOLIO = {
       slug: "project-04.html",
       number: "04",
       art: "kiln",
-      cover: "assets/portfolio/project-04-cover-2026.jpg",
-      images: ["assets/portfolio/page-27.jpg", "assets/portfolio/page-28.jpg", "assets/portfolio/page-29.jpg", "assets/portfolio/page-30.jpg"],
+      cover: "assets/portfolio/project-04-original/01.jpg",
+      cardCover: "assets/portfolio/project-04-card-cover.jpg",
+      images: ["assets/portfolio/project-04-original/01.jpg", "assets/portfolio/project-04-original/02.jpg", "assets/portfolio/project-04-original/03.jpg", "assets/portfolio/project-04-original/04.jpg"],
       zh: {
         title: "智慧颐居",
         subtitle: "全周期建筑适老体系的构建与智能模块化设计探索",
@@ -393,6 +397,7 @@ window.PORTFOLIO = {
     { art: "graphic-1", zh: { title: "UAD 杯全国大学生城市设计大赛", type: "国赛二等奖", year: "HONOR 02" }, en: { title: "UAD National Student Urban Design Competition", type: "National Second Prize", year: "HONOR 02" } },
     { art: "install-1", zh: { title: "中国大学生文化创意设计大赛", type: "国赛一等奖", year: "HONOR 03" }, en: { title: "China Student Cultural Creative Design Competition", type: "National First Prize", year: "HONOR 03" } },
     { art: "photo-2", zh: { title: "亚洲设计学年奖", type: "优秀奖", year: "HONOR 04" }, en: { title: "Asian Design Award", type: "Excellence Award", year: "HONOR 04" } },
-    { art: "graphic-2", zh: { title: "北京市居家适老化改造设计创新大赛", type: "三等奖", year: "HONOR 05" }, en: { title: "Beijing Age-friendly Home Design Competition", type: "Third Prize", year: "HONOR 05" } }
+    { art: "graphic-2", zh: { title: "北京市居家适老化改造设计创新大赛", type: "三等奖", year: "HONOR 05" }, en: { title: "Beijing Age-friendly Home Design Competition", type: "Third Prize", year: "HONOR 05" } },
+    { art: "install-2", zh: { title: "“华夏奖”文化艺术设计大赛", type: "金奖", year: "HONOR 06" }, en: { title: "Huaxia Award Cultural Art Design Competition", type: "Gold Award", year: "HONOR 06" } }
   ]
 };

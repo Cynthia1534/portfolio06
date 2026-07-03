@@ -433,9 +433,10 @@
     if (!grid) return;
     grid.innerHTML = DATA.projects.map(function (project) {
       var item = project[currentLang];
+      var cardCover = project.cardCover || project.cover;
       return '<article class="project-card reveal">' +
         '<a href="' + project.slug + '" aria-label="' + esc(item.title) + '">' +
-        '<div class="project-art">' + (project.cover ? '<img src="' + esc(project.cover) + '" alt="' + esc(item.title) + '" loading="lazy">' : artSVG(project.art, "default")) + '</div>' +
+        '<div class="project-art">' + (cardCover ? '<img src="' + esc(cardCover) + '" alt="' + esc(item.title) + '" loading="lazy">' : artSVG(project.art, "default")) + '</div>' +
         '<div class="project-info"><div><span class="project-number">PROJECT / ' + project.number + '</span>' +
         '<h3 class="font-display">' + esc(item.title) + '</h3><p>' + esc(item.type) + ' · ' + esc(item.location) + '</p></div>' +
         '<span class="project-arrow" aria-hidden="true">↗</span></div></a></article>';
@@ -466,12 +467,17 @@
       var highlights = (item.highlights || []).slice(0, 5).map(function (label) {
         return '<span>' + esc(label) + '</span>';
       }).join("");
+      var usedTerms = {};
+      var detailParagraphs = (item.details || [item.detail]).map(function (paragraph) {
+        return '<p>' + highlightExperienceText(paragraph, item.highlights || [], usedTerms) + '</p>';
+      }).join("");
       return '<article class="experience-item reveal" style="--experience-accent:' + ACCENTS[index % ACCENTS.length] + '">' +
         '<span class="experience-period">' + esc(experience.period) + '</span>' +
         '<div><h3>' + esc(item.company) + '</h3><p class="experience-role">' + esc(item.role) + '</p>' +
         '<div class="experience-tags" aria-hidden="true">' + highlights + '</div>' +
         '<p class="experience-detail">' + esc(item.detail) + '</p>' +
-        '<button class="experience-more" type="button" data-experience="' + index + '">' + (currentLang === "zh" ? "查看详细经历" : "View details") + '<span aria-hidden="true">↗</span></button></div>' +
+        '<button class="experience-more" type="button" data-experience="' + index + '" aria-expanded="false" aria-controls="experience-panel-' + index + '">' + (currentLang === "zh" ? "查看详细经历" : "View details") + '<span aria-hidden="true">⌄</span></button>' +
+        '<div class="experience-inline-detail" id="experience-panel-' + index + '">' + detailParagraphs + '</div></div>' +
         '</article>';
     }).join("");
     bindExperienceDetails();
@@ -513,28 +519,26 @@
   }
 
   function bindExperienceDetails() {
-    var dialog = ensureExperienceDialog();
     document.querySelectorAll("[data-experience]").forEach(function (button) {
       if (button.dataset.bound) return;
       button.dataset.bound = "true";
       button.addEventListener("click", function () {
-        var experience = DATA.experiences[Number(button.dataset.experience)];
-        if (!experience) return;
-        var item = experience[currentLang];
-        var highlights = item.highlights || [];
-        dialog.style.setProperty("--experience-accent", ACCENTS[Number(button.dataset.experience) % ACCENTS.length]);
-        document.getElementById("experienceDialogPeriod").textContent = experience.period;
-        document.getElementById("experienceDialogTitle").textContent = item.company;
-        document.getElementById("experienceDialogRole").textContent = item.role;
-        document.getElementById("experienceDialogTags").innerHTML = highlights.map(function (label) {
-          return '<span>' + esc(label) + '</span>';
-        }).join("");
-        var usedTerms = {};
-        document.getElementById("experienceDialogBody").innerHTML = (item.details || [item.detail]).map(function (paragraph) {
-          return '<p>' + highlightExperienceText(paragraph, highlights, usedTerms) + '</p>';
-        }).join("");
-        dialog.showModal();
-        document.body.classList.add("lightbox-open");
+        var item = button.closest(".experience-item");
+        if (!item) return;
+        var isOpen = item.classList.contains("is-open");
+        document.querySelectorAll(".experience-item.is-open").forEach(function (openItem) {
+          openItem.classList.remove("is-open");
+          var openButton = openItem.querySelector("[data-experience]");
+          if (openButton) {
+            openButton.setAttribute("aria-expanded", "false");
+            openButton.firstChild.nodeValue = currentLang === "zh" ? "查看详细经历" : "View details";
+          }
+        });
+        if (!isOpen) {
+          item.classList.add("is-open");
+          button.setAttribute("aria-expanded", "true");
+          button.firstChild.nodeValue = currentLang === "zh" ? "收起详细经历" : "Hide details";
+        }
       });
     });
   }
@@ -631,7 +635,9 @@
     dialog = document.createElement("dialog");
     dialog.className = "lightbox";
     dialog.id = "lightbox";
-    dialog.innerHTML = '<button type="button" class="lightbox-close" aria-label="Close image">×</button>' +
+    dialog.innerHTML = '<button type="button" class="lightbox-close" aria-label="' + esc(DATA.translations[currentLang].common.close) + '">×</button>' +
+      '<button type="button" class="lightbox-nav lightbox-prev" aria-label="' + esc(DATA.translations[currentLang].common.previous) + '">‹</button>' +
+      '<button type="button" class="lightbox-nav lightbox-next" aria-label="' + esc(DATA.translations[currentLang].common.next) + '">›</button>' +
       '<div class="lightbox-art" id="lightboxArt"></div>' +
       '<div class="lightbox-caption"><strong id="lightboxTitle"></strong><span id="lightboxMeta"></span></div>';
     document.body.appendChild(dialog);
@@ -641,7 +647,19 @@
   function bindProjectImageLightbox() {
     if (page !== "project") return;
     var dialog = ensureLightbox();
-    document.querySelectorAll(".project-hero-art, .media-frame").forEach(function (frame, index) {
+    var frames = Array.prototype.slice.call(document.querySelectorAll(".project-hero-art, .media-frame"));
+    var images = frames.map(function (frame) { return frame.querySelector("img"); }).filter(Boolean);
+    function showProjectImage(index) {
+      if (!images.length) return;
+      var nextIndex = (index + images.length) % images.length;
+      var image = images[nextIndex];
+      dialog.dataset.currentIndex = String(nextIndex);
+      document.getElementById("lightboxArt").innerHTML = '<img src="' + esc(image.src) + '" alt="' + esc(image.alt || "") + '">';
+      document.getElementById("lightboxTitle").textContent = image.alt || document.title;
+      document.getElementById("lightboxMeta").textContent = String(nextIndex + 1).padStart(2, "0") + " / " + String(images.length).padStart(2, "0");
+    }
+    dialog.__showProjectImage = showProjectImage;
+    frames.forEach(function (frame, index) {
       var image = frame.querySelector("img");
       if (!image || frame.dataset.lightboxBound) return;
       frame.dataset.lightboxBound = "true";
@@ -649,9 +667,7 @@
       frame.setAttribute("role", "button");
       frame.setAttribute("aria-label", currentLang === "zh" ? "单独查看图片" : "View image");
       function openImage() {
-        document.getElementById("lightboxArt").innerHTML = '<img src="' + esc(image.src) + '" alt="' + esc(image.alt || "") + '">';
-        document.getElementById("lightboxTitle").textContent = image.alt || document.title;
-        document.getElementById("lightboxMeta").textContent = String(index + 1).padStart(2, "0");
+        showProjectImage(index);
         dialog.showModal();
         document.body.classList.add("lightbox-open");
       }
@@ -666,6 +682,24 @@
     if (!dialog.dataset.bound) {
       dialog.dataset.bound = "true";
       dialog.querySelector(".lightbox-close").addEventListener("click", function () { dialog.close(); });
+      dialog.querySelector(".lightbox-prev").addEventListener("click", function (event) {
+        event.stopPropagation();
+        var index = Number(dialog.dataset.currentIndex || 0);
+        if (dialog.__showProjectImage) dialog.__showProjectImage(index - 1);
+      });
+      dialog.querySelector(".lightbox-next").addEventListener("click", function (event) {
+        event.stopPropagation();
+        var index = Number(dialog.dataset.currentIndex || 0);
+        if (dialog.__showProjectImage) dialog.__showProjectImage(index + 1);
+      });
+      dialog.addEventListener("keydown", function (event) {
+        if (!dialog.open) return;
+        if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+          event.preventDefault();
+          var index = Number(dialog.dataset.currentIndex || 0);
+          if (dialog.__showProjectImage) dialog.__showProjectImage(index + (event.key === "ArrowLeft" ? -1 : 1));
+        }
+      });
       dialog.addEventListener("click", function (event) { if (event.target === dialog) dialog.close(); });
       dialog.addEventListener("close", function () { document.body.classList.remove("lightbox-open"); });
     }
@@ -773,20 +807,27 @@
     var prev = DATA.projects[prevIndex];
     var next = DATA.projects[nextIndex];
     var media = project.images || [];
+    var firstMedia = media[0];
+    var restMedia = media.slice(1);
+    var firstFigure = firstMedia ? '<figure class="media-frame project-featured-frame reveal"><img src="' + esc(firstMedia) + '" alt="' + esc(item.title) + ' 1" loading="eager">' +
+      '<figcaption class="media-label">' + esc(item.title) + ' / 01</figcaption></figure>' : "";
     return '<div class="project-page">' +
       '<header class="project-topbar"><a class="back-link" href="index.html#architecture">← <span>' + esc(t.common.back) + '</span></a>' +
       '<button class="lang-toggle" type="button" data-lang-toggle aria-label="Switch language"><span data-lang-option="zh">中</span><i></i><span data-lang-option="en">EN</span></button></header>' +
-      '<section class="project-hero"><div class="project-hero-art">' + (project.cover ? '<img src="' + esc(project.cover) + '" alt="">' : artSVG(project.art, "default")) + '</div>' +
+      '<section class="project-hero project-hero-title-only">' +
       '<div class="project-hero-content"><div><p class="eyebrow">PROJECT / ' + project.number + '</p><h1 class="font-display">' + esc(item.title) + '</h1><p class="subtitle">' + esc(item.subtitle) + ' · ' + esc(item.location) + '</p></div><span class="project-count">' + project.number + ' / 04</span></div></section>' +
       '<section class="project-summary"><div class="container">' +
+      '<div class="project-intro-media">' +
       '<div class="project-brief reveal">' +
       briefRow(t.projectPage.type, item.type) +
       briefRow(t.projectPage.description, item.intro) +
       briefRow(t.projectPage.format, item.role) +
+      '</div>' + firstFigure +
       '</div>' +
-      '<div class="project-media">' + media.map(function (src, mediaIndex) {
-        return '<figure class="media-frame reveal"><img src="' + esc(src) + '" alt="' + esc(item.title) + ' ' + (mediaIndex + 1) + '" loading="lazy">' +
-          '<figcaption class="media-label">' + esc(t.projectPage.placeholder) + ' / ' + String(mediaIndex + 1).padStart(2, "0") + '</figcaption></figure>';
+      '<div class="project-media">' + restMedia.map(function (src, mediaIndex) {
+        var imageNumber = mediaIndex + 2;
+        return '<figure class="media-frame reveal"><img src="' + esc(src) + '" alt="' + esc(item.title) + ' ' + imageNumber + '" loading="lazy">' +
+          '<figcaption class="media-label">' + esc(item.title) + ' / ' + String(imageNumber).padStart(2, "0") + '</figcaption></figure>';
       }).join("") + '</div>' +
       '</div></section>' +
       '<nav class="project-next"><a href="' + prev.slug + '"><span>← ' + esc(t.common.previous) + '</span><strong>' + esc(prev[currentLang].title) + '</strong></a>' +

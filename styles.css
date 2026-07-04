@@ -1236,6 +1236,54 @@ main > section > .scroll-cue,
   }
 }
 
+/* FINAL MOBILE ENGLISH HERO WRAP: keep the English intro and identity pill inside the screen. */
+@media (max-width: 760px) {
+  html[lang="en"] body[data-page="home"] .hero > .hero-content .hero-copy,
+  body[data-page="home"][data-lang="en"] .hero > .hero-content .hero-copy {
+    display: block !important;
+    width: min(100%, calc(100vw - 72px)) !important;
+    max-width: calc(100vw - 72px) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    overflow-wrap: break-word !important;
+    word-break: normal !important;
+    text-align: center !important;
+    font-size: clamp(10px, 2.72vw, 12px) !important;
+    line-height: 1.72 !important;
+  }
+
+  html[lang="en"] body[data-page="home"] .hero > .hero-content .hero-role,
+  body[data-page="home"][data-lang="en"] .hero > .hero-content .hero-role {
+    display: inline-flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 2px 8px !important;
+    width: auto !important;
+    max-width: calc(100vw - 112px) !important;
+    padding: 10px 18px !important;
+    white-space: normal !important;
+    overflow: hidden !important;
+    text-align: center !important;
+    font-size: clamp(10px, 2.65vw, 12px) !important;
+    line-height: 1.35 !important;
+  }
+
+  html[lang="en"] body[data-page="home"] .hero > .hero-content .hero-role span,
+  html[lang="en"] body[data-page="home"] .hero > .hero-content .hero-role em,
+  body[data-page="home"][data-lang="en"] .hero > .hero-content .hero-role span,
+  body[data-page="home"][data-lang="en"] .hero > .hero-content .hero-role em {
+    flex: 0 1 auto !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+    word-break: normal !important;
+  }
+}
+
 .hero {
   --hero-x: 0;
   --hero-y: 0;
@@ -11099,5 +11147,128 @@ body[data-page="home"] .hero-name {
     white-space: nowrap !important;
     font-size: clamp(12px, .92vw, 14px) !important;
     line-height: 1.7 !important;
+  }
+}
+
+/* FINAL MOBILE HERO ROLE FIT: keep the black identity pill readable in English. */
+@media (max-width: 760px) {
+  body[data-page="home"] .hero > .hero-content .hero-role {
+    width: fit-content !important;
+    max-width: calc(100vw - 72px) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 12px 20px !important;
+    font-size: clamp(12px, 3.05vw, 14px) !important;
+    line-height: 1.35 !important;
+    white-space: normal !important;
+    text-align: center !important;
+    overflow-wrap: anywhere !important;
+    word-break: normal !important;
+  }
+
+  body[data-page="home"] .hero > .hero-content .hero-role span,
+  body[data-page="home"] .hero > .hero-content .hero-role em {
+    font-size: inherit !important;
+    line-height: inherit !important;
+  }
+}
+
+/* FINAL MOBILE ENGLISH OVERFLOW FIX: prevent hero copy and role pill from spilling out. */
+@media (max-width: 760px) {
+  body[data-page="home"] .hero > .hero-content .hero-copy,
+  body[data-page="home"] .hero-copy {
+    width: min(100%, calc(100vw - 64px)) !important;
+    max-width: calc(100vw - 64px) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+    word-break: normal !important;
+    text-align: center !important;
+    font-size: clamp(11px, 2.85vw, 12px) !important;
+    line-height: 1.62 !important;
+  }
+
+  body[data-page="home"] .hero > .hero-content .hero-role,
+  body[data-page="home"] .hero-role {
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    row-gap: 3px !important;
+    column-gap: 8px !important;
+    width: min(100%, calc(100vw - 92px)) !important;
+    max-width: calc(100vw - 92px) !important;
+    padding: 11px 16px !important;
+    white-space: normal !important;
+    overflow: hidden !important;
+    text-align: center !important;
+    font-size: clamp(11px, 2.7vw, 12px) !important;
+    line-height: 1.35 !important;
+  }
+
+  body[data-page="home"] .hero > .hero-content .hero-role span,
+  body[data-page="home"] .hero > .hero-content .hero-role em,
+  body[data-page="home"] .hero-role span,
+  body[data-page="home"] .hero-role em {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+    word-break: normal !important;
+    font-size: inherit !important;
+    line-height: inherit !important;
+  }
+}
+
+/* FINAL MOBILE ENGLISH HERO WRAP 2: last-rule lock for hosted mobile browsers. */
+@media (max-width: 760px) {
+  body[data-page="home"] .hero > .hero-content .hero-copy,
+  body[data-page="home"] .hero-copy {
+    display: block !important;
+    width: min(100%, calc(100vw - 72px)) !important;
+    max-width: calc(100vw - 72px) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    overflow-wrap: break-word !important;
+    word-break: normal !important;
+    text-align: center !important;
+    font-size: clamp(10px, 2.72vw, 12px) !important;
+    line-height: 1.72 !important;
+  }
+
+  body[data-page="home"] .hero > .hero-content .hero-role,
+  body[data-page="home"] .hero-role {
+    box-sizing: border-box !important;
+    display: inline-flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 2px 8px !important;
+    width: auto !important;
+    max-width: calc(100vw - 112px) !important;
+    padding: 10px 18px !important;
+    white-space: normal !important;
+    overflow: hidden !important;
+    text-align: center !important;
+    font-size: clamp(10px, 2.65vw, 12px) !important;
+    line-height: 1.35 !important;
+  }
+
+  body[data-page="home"] .hero > .hero-content .hero-role span,
+  body[data-page="home"] .hero > .hero-content .hero-role em,
+  body[data-page="home"] .hero-role span,
+  body[data-page="home"] .hero-role em {
+    flex: 0 1 auto !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+    word-break: normal !important;
+    font-size: inherit !important;
+    line-height: inherit !important;
   }
 }

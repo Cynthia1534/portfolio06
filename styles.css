@@ -11272,3 +11272,14 @@ body[data-page="home"] .hero-name {
     line-height: inherit !important;
   }
 }
+
+/* FINAL DESKTOP CONTACT VALUE SCALE: match email value size with phone and WeChat. */
+@media (min-width: 761px) {
+  body[data-page="home"] .email-link .contact-text,
+  body[data-page="home"] .phone-link .contact-text,
+  body[data-page="home"] .wechat-link .contact-text {
+    font-size: 13px !important;
+    line-height: 1.35 !important;
+    letter-spacing: .055em !important;
+  }
+}

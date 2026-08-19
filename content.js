@@ -6,16 +6,16 @@ window.PORTFOLIO = {
       hero: {
         eyebrow: "钟颍杉 · 建筑作品集 / 2026",
         rolePrefix: "北京工业大学",
-        roles: ["建筑学学生", "城市观察者", "空间设计者"],
-        description: "建筑学五年制本科生，专业排名 4/49。<br>作品关注城市更新、复合公共空间、居住环境与适老化设计。",
-        primary: "查看建筑项目",
+        roles: ["建筑学学生", "计算性设计探索者", "智能设计实践者"],
+        description: "<span class=\"hero-copy-kicker\">建筑学五年制本科生</span><span class=\"hero-copy-statement\">关注计算性设计与建筑创新<br>善于融合参数化方法与智能技术拓展设计思路。</span>",
+        primary: "查看设计项目",
         secondary: "个人简介"
       },
       about: {
         eyebrow: "01 / 个人简介",
         title: "从城市出发<br><em class=\"font-display\">回应真实生活</em>",
         lede: "钟颍杉（Cynthia），北京工业大学建筑学五年制本科生，关注城市更新、公共空间、居住环境、室内改造、文化空间与数字技术等多尺度议题。",
-        statement: "善于将 AI 工具融入设计全流程，形成从概念构思、方案深化到图面表达的高效个人工作流。",
+        statement: "关注计算性设计与智能技术的跨领域应用，擅长融合参数化方法、AI Agent 与系统化思维，构建更高效、更具逻辑性与创新性的解决路径。",
         educationLabel: "教育",
         education: "北京工业大学 · 建筑学（五年制）",
         experienceLabel: "成绩",
@@ -67,8 +67,8 @@ window.PORTFOLIO = {
       hero: {
         eyebrow: "Zhong Yingshan · Architecture Portfolio / 2026",
         rolePrefix: "BJUT",
-        roles: ["Architecture Student", "Urban Observer", "Spatial Designer"],
-        description: "A five-year architecture student ranked 4/49.<br>Focused on urban regeneration and public space,<br>housing and age-friendly design.",
+        roles: ["Architecture Student", "Computational Design Explorer", "AI Design Practitioner"],
+        description: "<span class=\"hero-copy-kicker\">A five-year architecture student.</span><span class=\"hero-copy-statement\">Focused on computational design and architectural innovation, integrating parametric methods and intelligent technologies to expand design thinking.</span>",
         primary: "View Projects",
         secondary: "Academic Profile"
       },

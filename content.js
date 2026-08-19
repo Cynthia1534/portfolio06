@@ -7,7 +7,7 @@ window.PORTFOLIO = {
         eyebrow: "钟颍杉 · 建筑作品集 / 2026",
         rolePrefix: "北京工业大学",
         roles: ["建筑设计学习者", "计算设计探索者", "智能设计实践者"],
-        description: "<span class=\"hero-copy-kicker\">建筑学五年制本科生</span><span class=\"hero-copy-statement\">关注计算性设计与建筑创新<br>善于融合参数化方法与智能技术拓展设计思路。</span>",
+        description: "<span class=\"hero-copy-kicker\">建筑学五年制本科生</span><span class=\"hero-copy-statement\">关注计算性设计与建筑创新<br>善于融合参数化方法与智能技术拓展设计思路</span>",
         primary: "查看设计项目",
         secondary: "个人简介"
       },

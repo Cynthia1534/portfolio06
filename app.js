@@ -469,7 +469,7 @@
       }).join("");
       var usedTerms = {};
       var detailParagraphs = (item.details || [item.detail]).map(function (paragraph) {
-        return '<p>' + highlightExperienceText(paragraph, item.highlights || [], usedTerms) + '</p>';
+        return '<p>' + highlightExperienceText(paragraph, item.detailHighlights || item.highlights || [], usedTerms) + '</p>';
       }).join("");
       return '<article class="experience-item reveal" style="--experience-accent:' + ACCENTS[index % ACCENTS.length] + '">' +
         '<span class="experience-period">' + esc(experience.period) + '</span>' +

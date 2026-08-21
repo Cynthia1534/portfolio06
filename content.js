@@ -23,7 +23,7 @@ window.PORTFOLIO = {
         skillsTitle: "专业技能",
         skillsButton: "点击查看",
         modelingLabel: "建模与渲染",
-        modelingSkills: "熟练运用 CAD、SU、Rhino、Revit 等建筑设计软件，能够进行 3D 建模和场景搭建。<br>掌握 Grasshopper 参数化设计，能够结合 Twinmotion 等渲染器输出高质量效果图。<br>能够灵活运用 Stable Diffusion、Nano Banana 等 AI 工具辅助设计推敲与表达。",
+        modelingSkills: "• 熟练使用 <strong>ChatGPT / Codex、Gemini、Claude Code</strong> 等前沿生成式 AI 工具，具备 <strong>AI Agent 与 MCP 工作流应用能力</strong>；能够将 AI Agent 应用于资料检索与分析、设计研究、方案推演、参数化辅助、代码与脚本生成、软件操作、模型处理、图像生成与编辑、文本及汇报材料整理等任务，并根据设计需求组合不同模型与工具构建自动化工作流，提升建筑设计全过程的效率与迭代能力。<br>• 熟练运用 <strong>AutoCAD、SketchUp、Rhino、Revit</strong> 等建筑设计与建模软件，具备二维制图、三维建模、建筑体量推演及场景搭建能力。<br>• 熟练掌握 <strong>Grasshopper</strong> 参数化设计，可进行参数逻辑搭建、形体生成、立面控制及方案快速迭代。<br>• 熟练运用 <strong>Twinmotion</strong> 等建筑可视化工具，具备材质、灯光、场景搭建及建筑效果图表现能力。",
         graphicLabel: "平面设计与视频制作",
         graphicSkills: "能够运用 PS、AI 制作海报与作品集图面，具备良好的版式审美和视觉表达能力。<br>熟练运用剪映、PR、AE 等剪辑软件，能够完成脚本撰写、画面调色、动态歌词排版与视频输出。",
         statProjects: "核心课程设计",
@@ -84,7 +84,7 @@ window.PORTFOLIO = {
         skillsTitle: "Professional Skills",
         skillsButton: "View details",
         modelingLabel: "Modeling & Rendering",
-        modelingSkills: "Skilled in CAD, SketchUp, Rhino and Revit for architectural modeling and scene building.<br>Experienced with Grasshopper parametric design and Twinmotion rendering for high-quality visual output.<br>Able to use Stable Diffusion, Nano Banana and other AI tools to support design iteration and representation.",
+        modelingSkills: "• Proficient with leading generative AI tools including <strong>ChatGPT / Codex, Gemini and Claude Code</strong>, with practical <strong>AI Agent and MCP workflow capabilities</strong>. Able to apply AI Agents to research and analysis, design studies, option exploration, parametric assistance, code and script generation, software operations, model processing, image generation and editing, and the organization of written and presentation materials; able to combine models and tools into automated workflows that improve efficiency and iteration throughout the architectural design process.<br>• Proficient with architectural design and modeling software including <strong>AutoCAD, SketchUp, Rhino and Revit</strong>, covering 2D drafting, 3D modeling, massing studies and scene building.<br>• Proficient in <strong>Grasshopper</strong> parametric design for logic construction, form generation, facade control and rapid design iteration.<br>• Proficient with architectural visualization tools including <strong>Twinmotion</strong>, with experience in materials, lighting, scene building and architectural rendering.",
         graphicLabel: "Graphic Design & Video",
         graphicSkills: "Able to use Photoshop and Illustrator for posters and portfolio drawings, with strong layout sense and visual judgment.<br>Experienced with Jianying, Premiere and After Effects for scripting, color grading, dynamic lyric layout and video production.",
         statProjects: "Core Design Studios",
@@ -124,6 +124,35 @@ window.PORTFOLIO = {
     }
   },
   experiences: [
+    {
+      period: "2026.06–2026.10（预计）",
+      zh: {
+        company: "北京市建筑设计研究院",
+        role: "建筑设计实习生",
+        detail: "参与酒店及高校学生宿舍等建筑项目的方案设计与深化，并结合参数化、AI 辅助工具及多专业协同推进设计优化与成果表达。",
+        highlights: ["方案设计", "Rhino 建模", "参数化设计", "AI Agent", "多专业协同"],
+        detailHighlights: ["酒店及高校学生宿舍", "AI 辅助工具", "跨专业协同与设计问题统筹能力"],
+        details: [
+          "项目设计实践：参与酒店及高校学生宿舍等建筑项目的方案设计与深化，围绕场地条件、面积指标、柱网模数及功能需求开展总图布局、平面组织、体量推敲与立面设计，并完成 Rhino 建模及多轮方案优化，具备较完整的建筑方案设计与快速迭代能力。",
+          "数字化辅助设计：结合 Rhino、Grasshopper 与 AI 辅助工具开展建筑建模、方案生成与设计优化，将参数化及 AI Agent 方法应用于实际设计流程，提升方案推演与建模效率。",
+          "成果表达与信息整合：参与项目汇报及建筑奖项申报，完成建筑图纸整理、展板设计、汇报 PPT 制作及项目资料整合，具备较强的建筑视觉表达与复杂信息梳理能力。",
+          "多专业协同：参与结构、暖通、给排水、电气等多专业协调及项目推进，结合专业反馈持续调整建筑方案，具备跨专业协同与设计问题统筹能力。"
+        ]
+      },
+      en: {
+        company: "Beijing Institute of Architectural Design",
+        role: "Architectural Design Intern",
+        detail: "Contributed to hotel and university dormitory projects through architectural design development, parametric and AI-assisted workflows, multidisciplinary coordination and project communication.",
+        highlights: ["architectural design", "Rhino modeling", "parametric design", "AI Agent", "coordination"],
+        detailHighlights: ["hotel and university dormitory projects", "AI-assisted tools", "Multidisciplinary coordination"],
+        details: [
+          "Project design practice: Contributed to the design and development of hotel and university dormitory projects. Worked on site planning, plan organization, massing studies and facade design in response to site conditions, area targets, structural grids and functional requirements, while completing Rhino models and multiple rounds of design iteration.",
+          "Digital design support: Used Rhino, Grasshopper and AI-assisted tools for architectural modeling, option generation and design optimization, applying parametric and AI Agent methods to improve design exploration and modeling efficiency.",
+          "Communication and information integration: Supported project presentations and architectural-award submissions by organizing drawings, designing presentation boards, preparing presentation decks and consolidating project information.",
+          "Multidisciplinary coordination: Participated in coordination with structural, HVAC, plumbing and electrical disciplines, continuously refining architectural proposals in response to technical feedback and project requirements."
+        ]
+      }
+    },
     {
       period: "2026.01–2026.03",
       zh: {
@@ -225,31 +254,6 @@ window.PORTFOLIO = {
           "Researched product audiences, analyzed target markets and user characteristics, and wrote user personas to provide direction for video production.",
           "Designed and wrote adaptive video scripts for different promotional targets, using AI generation tools to produce images, audio and video assets efficiently.",
           "Completed final videos through editing and optimization."
-        ]
-      }
-    },
-    {
-      period: "2023.06–2023.07",
-      zh: {
-        company: "中国建筑科学研究院建筑设计院",
-        role: "建筑设计实习生",
-        detail: "在建筑设计小组参与改造项目的前期调研、案例查找、企业文化研究与旧建筑缺陷分析。",
-        highlights: ["前期调研", "案例查找", "改造项目", "企业文化", "旧建筑分析"],
-        details: [
-          "在建筑设计小组负责项目的前期调研与案例查找工作，主要参与了一个改造项目。",
-          "在此期间，深入了解将要入驻公司的企业文化，通过个性化设计与案例查找，结合周边建筑物进行设计。",
-          "同时，对原有旧建筑的一些缺陷进行分析，并在新的设计中加以弥补，以确保设计方案的完善与实用性。"
-        ]
-      },
-      en: {
-        company: "China Academy of Building Research, Architectural Design Institute",
-        role: "Architectural Design Intern",
-        detail: "Supported an adaptive-renovation project through early research, precedent studies, company-culture research and existing-building analysis.",
-        highlights: ["early research", "precedents", "renovation", "company culture", "existing building"],
-        details: [
-          "Worked with an architectural design team on early-stage research and precedent studies, mainly supporting a renovation project.",
-          "Studied the culture of the incoming company and used precedent research to support a design response connected with the surrounding buildings.",
-          "Analyzed defects of the existing building and addressed them in the new design proposal to improve completeness and practicality."
         ]
       }
     }

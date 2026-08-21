@@ -10899,6 +10899,26 @@ body[data-page="home"] #about .skills-grid article {
   padding-left: 20px !important;
 }
 
+body[data-page="home"] #about .skills-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: clamp(24px, 3vw, 48px) !important;
+}
+
+body[data-page="home"] #about .skills-grid .skills-featured {
+  grid-column: auto !important;
+}
+
+body[data-page="home"] #about .skills-grid .skill-dot {
+  color: #111 !important;
+  font-weight: 900 !important;
+}
+
+@media (max-width: 760px) {
+  body[data-page="home"] #about .skills-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
 /* FINAL MOBILE CONTACT TYPE SCALE: keep all contact rows visually consistent. */
 @media (max-width: 760px) {
   body[data-page="home"] .email-link .contact-label,

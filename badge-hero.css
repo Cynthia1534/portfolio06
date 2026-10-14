@@ -1,0 +1,240 @@
+/* Interactive personal badge header. */
+.badge-hero{position:relative;height:650px;isolation:isolate;overflow:hidden;background:#fff;border-bottom:1px solid #eceef0}.hero-corner{position:absolute;z-index:3;top:50px;width:270px;font-size:14px;line-height:1.7;color:#565a61}.hero-corner-left{left:max(40px,calc((100% - 1080px)/2))}.hero-corner-right{right:max(40px,calc((100% - 1080px)/2));text-align:right}.hero-corner .profile-label{margin-bottom:12px;font-size:11px;color:#969ba2}.hero-corner strong{font-size:15px;font-weight:500;color:#303740}.hero-corner small{display:block;margin-top:6px;font-size:12px;color:#90969e}.badge-name{position:absolute;z-index:0;bottom:49px;width:100%;margin:0;text-align:center;white-space:nowrap;font-family:var(--display);font-size:clamp(80px,10.6vw,164px);font-weight:600;line-height:1;letter-spacing:-.065em;color:#24282d;pointer-events:none}.badge-stage{position:absolute;inset:0;z-index:2;pointer-events:none}.badge-cord{position:absolute;inset:0;width:100%;height:100%;overflow:visible;filter:drop-shadow(6px 8px 4px #1c354315)}.badge-cord path{fill:none;stroke-linecap:round}.cord-edge{stroke:#37494c;stroke-width:13}.cord-color{stroke:url(#lanyard-spectrum);stroke-width:9}.badge-sleeve{position:absolute;left:50%;top:170px;margin-left:-108px;width:216px;height:305px;padding:23px 12px 12px;border:1px solid #d2d8dc;border-radius:12px;background:linear-gradient(120deg,#ffffffba,#ffffff35 45%,#eaf3f955);box-shadow:inset 0 0 0 3px #ffffffbb,inset 0 0 0 4px #d9dfe66b,10px 17px 22px #2b36431c;backdrop-filter:blur(5px);transform-origin:50% 5px;pointer-events:auto;touch-action:none;cursor:grab;text-align:left;color:#25292e;font-family:var(--sans);will-change:transform;user-select:none;-webkit-user-select:none}.badge-sleeve:active{cursor:grabbing}.badge-sleeve:focus-visible{outline:2px solid #29AEE1;outline-offset:7px}.badge-sleeve:before{content:'';position:absolute;top:9px;left:calc(50% - 22px);width:44px;height:7px;border:1px solid #c8ced4;border-radius:6px;background:#fff8;box-shadow:inset 0 1px 2px #87949d20}.badge-clip{position:absolute;top:-26px;left:calc(50% - 7px);height:38px;width:14px;border:2px solid #a8afb5;border-radius:5px;background:linear-gradient(90deg,#9da7af,#fff 45%,#b6c0c7);box-shadow:2px 3px 3px #26354415;z-index:2}.badge-paper{display:flex;flex-direction:column;height:100%;padding:19px 15px 13px;background:linear-gradient(140deg,#fff,#f8fafb);border:1px solid #e7ebed;position:relative;overflow:hidden}.badge-paper:before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:var(--spectrum)}.badge-paper-top{display:flex;justify-content:space-between;font-size:8px;letter-spacing:.11em;color:#89919a}.badge-symbol{font-size:15px;line-height:12px;color:#08AE68}.badge-cn{font-size:30px;font-weight:600;letter-spacing:-1px;margin-top:24px;line-height:1.2}.badge-en{font-size:15px;font-weight:400;color:#727c87;margin-top:6px}.badge-paper-bottom{margin-top:auto}.badge-school{font-size:10px;line-height:1.6;font-weight:500}.badge-date{display:block;font-size:8px;line-height:1.5;color:#8a929b;margin-top:4px}.badge-spectrum{display:block;height:21px;margin-top:14px;background:var(--spectrum);border-radius:2px;opacity:.85}.badge-id{display:flex;justify-content:space-between;margin-top:7px;font-size:7px;color:#959da4;letter-spacing:.1em}.badge-hint{position:absolute;z-index:3;bottom:16px;left:0;right:0;text-align:center;font-size:10px;color:#949ba4;pointer-events:none;letter-spacing:.02em}.hero-availability{position:absolute;left:max(40px,calc((100% - 1080px)/2));top:235px;display:flex;gap:8px;align-items:center;font-size:11px;color:#88938e}.hero-availability:before{content:'';width:5px;height:5px;border-radius:50%;background:var(--green)}.badge-hero .hero-scroll{position:absolute;right:max(40px,calc((100% - 1080px)/2));top:235px;z-index:4;font-size:11px;color:#7b838d;border-bottom:1px solid #c9d0d5;padding-bottom:5px}.profile-intro{padding-top:47px}
+@media(max-width:1000px){.hero-corner{width:220px;font-size:12px}.hero-corner-left{left:36px}.hero-corner-right{right:36px}.hero-corner strong{font-size:13px}.hero-availability{left:36px}.badge-hero .hero-scroll{right:36px}.badge-name{font-size:10.4vw}}
+@media(max-width:760px){.badge-hero{height:655px}.hero-corner{top:26px;font-size:11px;width:47%;line-height:1.6}.hero-corner-left{left:20px;width:calc(53% - 32px)}.hero-corner-right{right:20px;width:calc(47% - 27px)}.hero-corner .profile-label{font-size:10px;margin-bottom:8px}.hero-corner strong{font-size:11px}.hero-corner small{font-size:9px;line-height:1.6}.hero-availability{top:137px;left:20px;font-size:10px}.badge-hero .hero-scroll{top:137px;right:20px;font-size:10px}.badge-sleeve{top:250px}.badge-name{bottom:57px;font-size:10.4vw;letter-spacing:-.065em}.badge-hint{bottom:23px;font-size:10px}.profile-intro{padding-top:31px}}
+@media(prefers-reduced-motion:reduce){.badge-sleeve{will-change:auto}}
+
+.hero-corner [data-copy="badgeRoles"]{white-space:pre-line}
+@media(max-width:760px){.hero-corner{background:#ffffffd9}.hero-corner strong{display:block}}
+
+/* Soft five-colour light, with a thin clear sleeve rather than a framed panel. */
+.badge-hero{background:#fdfdfc;border-bottom-color:#ededec}.badge-hero:before{content:'';position:absolute;z-index:-1;width:min(850px,90vw);height:440px;left:50%;top:60px;transform:translateX(-50%);background:radial-gradient(ellipse at 15% 47%,#FFD600 0%,transparent 47%),radial-gradient(ellipse at 31% 66%,#F05A49 0%,transparent 43%),radial-gradient(ellipse at 52% 40%,#EA86B2 0%,transparent 47%),radial-gradient(ellipse at 73% 61%,#29AEE1 0%,transparent 45%),radial-gradient(ellipse at 91% 43%,#08AE68 0%,transparent 44%);opacity:.085;filter:blur(52px);mask-image:radial-gradient(ellipse,#000 15%,transparent 70%);pointer-events:none}.badge-name{bottom:57px;font-weight:500;letter-spacing:-.06em;color:#333839;font-size:clamp(80px,10.3vw,155px)}.badge-cord{filter:drop-shadow(3px 5px 3px #353c4012)}.cord-edge{stroke:#c4c8c4;stroke-width:12}.cord-core{stroke:#eeeee8;stroke-width:10}.cord-color{stroke-width:8;opacity:.24}.cord-weave{stroke:#fff;stroke-width:1;stroke-dasharray:1 3;opacity:.62}.badge-sleeve{width:230px;height:322px;margin-left:-115px;top:167px;padding:29px 9px 12px;border:1px solid #b8c1c04a;border-radius:10px;background:linear-gradient(115deg,#ffffff80 0%,#ffffff14 42%,#dfe8e619 72%,#ffffff77 100%);box-shadow:inset 1px 1px 0 #fff,inset -1px -1px 0 #ffffffb3,2px 3px 5px #22343104,8px 21px 34px -15px #253c4426;backdrop-filter:none;-webkit-backdrop-filter:none;overflow:visible;transform-origin:50% 5px}.badge-sleeve:before{top:11px;left:calc(50% - 18px);width:36px;height:5px;border:1px solid #a6b2b13b;border-radius:4px;background:#dce3df55;box-shadow:0 1px #ffffffdd}.badge-sleeve:after{content:'';position:absolute;inset:3px;border:1px solid #ffffff8c;border-radius:7px;background:linear-gradient(117deg,transparent 21%,#ffffff63 22%,#ffffff0a 30%,transparent 31%,transparent 68%,#fff4 69%,transparent 73%);pointer-events:none;z-index:3;opacity:.38}.badge-sleeve:focus-visible{outline:1px solid #738b83;outline-offset:6px}.badge-clip{top:-24px;left:calc(50% - 5px);width:10px;height:38px;border:1px solid #9da8a366;border-radius:4px;background:linear-gradient(90deg,#c9cfcc,#fdfefd 42%,#d2d9d6 78%,#aeb9b3);box-shadow:1px 2px 3px #27372c12}.badge-clip:after{content:'';position:absolute;left:2px;right:2px;top:5px;bottom:6px;border-left:1px solid #ffffffab;border-right:1px solid #adb8b12b;border-radius:2px}.badge-paper{isolation:isolate;padding:20px 17px 15px;border:0;border-radius:2px;background:#fcfdfb;box-shadow:0 0 0 1px #b7c0b51a,1px 3px 7px #29422d0a}.badge-paper:before{z-index:-1;inset:auto -35px -37px;height:193px;border-radius:0;background:radial-gradient(ellipse at 10% 63%,#FFD600 0%,transparent 51%),radial-gradient(ellipse at 26% 101%,#F05A49 0%,transparent 54%),radial-gradient(ellipse at 58% 60%,#EA86B2 0%,transparent 54%),radial-gradient(ellipse at 88% 59%,#29AEE1 0%,transparent 55%),radial-gradient(ellipse at 90% 104%,#08AE68 0%,transparent 53%);filter:blur(22px);opacity:.32;mask-image:linear-gradient(transparent,#000 65%)}.badge-paper-top{font-size:7px;letter-spacing:.13em;color:#949c97;align-items:center}.badge-symbol{color:#798980;font-size:13px}.badge-cn{font-size:33px;letter-spacing:-1.4px;margin-top:25px;font-weight:600;color:#323a36}.badge-en{font-size:14px;letter-spacing:-.2px;margin-top:7px;color:#8a928c}.badge-paper-bottom{position:relative;padding-top:33px}.badge-school{font-size:10px;color:#5d6d63;font-weight:500;line-height:1.6}.badge-date{font-size:8px;color:#849386;margin-top:5px}.badge-spectrum{height:1px;margin-top:18px;background:#6b817221;opacity:1;border-radius:0}.badge-id{font-size:6px;letter-spacing:.09em;margin-top:9px;color:#7f9186}.badge-hint{color:#a2a8a5;font-size:10px;bottom:22px}.hero-corner{color:#707775}.hero-corner strong{color:#46514b}.hero-corner .profile-label{color:#a2a9a5}.hero-corner small{color:#969f99}.hero-availability{color:#959f97}.hero-availability:before{opacity:.6}.badge-hero .hero-scroll{color:#8b9690;border-color:#cdd5cf}.site-header .brand-star{opacity:.55}
+@media(max-width:1000px){.badge-name{font-size:10.3vw}}
+@media(max-width:760px){.badge-hero{height:665px}.badge-hero:before{top:190px;width:550px;height:350px;opacity:.08}.badge-sleeve{top:245px;width:218px;height:312px;margin-left:-109px}.hero-corner{background:transparent}.hero-corner-left{width:calc(50% - 36px)}.hero-corner-right{width:calc(50% - 36px)}.hero-corner [data-copy="badgeRoles"]{font-size:10px;line-height:1.85}.badge-cn{font-size:31px}.badge-name{font-size:10.2vw;bottom:60px;letter-spacing:-.06em}.badge-hint{bottom:24px;font-size:9px}.badge-paper{padding-inline:15px}.cord-edge{stroke-width:10}.cord-core{stroke-width:8}.cord-color{stroke-width:6}.hero-corner strong{font-size:10px}}
+
+/* Landscape badge: identity and education share one calm horizontal plane. */
+.badge-hero{height:575px}
+.badge-hero:before{top:95px;height:360px}
+.badge-sleeve{top:177px;width:390px;height:218px;margin-left:-195px;padding:25px 10px 10px;border-radius:11px}
+.badge-sleeve:before{top:9px}
+.badge-sleeve:after{border-radius:8px}
+.badge-paper{padding:18px 21px 14px}
+.badge-paper:before{inset:auto -22px -65px;height:150px;opacity:.28;mask-image:linear-gradient(transparent,#000 75%)}
+.badge-paper-top{font-size:8px}
+.badge-main{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);align-items:center;gap:18px;flex:1;min-height:0}
+.badge-identity{display:flex;flex-direction:column;justify-content:center;min-width:0}
+.badge-cn{margin:0;font-size:36px;line-height:1.18;white-space:nowrap}
+.badge-en{margin-top:6px;font-size:13px;white-space:nowrap}
+.badge-paper-bottom{display:flex;flex-direction:column;justify-content:center;align-self:stretch;margin:0;padding:0 0 0 17px;border-left:1px solid #dbe4dbaa;min-width:0}
+.badge-school{font-size:11px;line-height:1.55}
+.badge-date{margin-top:8px;font-size:9px;line-height:1.5}
+.badge-footer{display:block}
+.badge-spectrum{margin-top:0}
+.badge-id{margin-top:8px;font-size:7px}
+.badge-name{bottom:55px}
+.badge-hint{bottom:18px}
+@media(max-width:760px){
+  .badge-hero{height:555px}
+  .badge-hero:before{top:166px;height:290px}
+  .badge-sleeve{top:218px;width:340px;height:204px;margin-left:-170px;transform-origin:50% 5px}
+  .badge-paper{padding:17px 16px 12px}
+  .badge-main{gap:10px;grid-template-columns:minmax(0,1fr) minmax(0,1.04fr)}
+  .badge-cn{font-size:30px}
+  .badge-en{font-size:11px}
+  .badge-paper-bottom{padding-left:11px}
+  .badge-school{font-size:10px}
+  .badge-date{font-size:8px}
+  .badge-paper-top{font-size:7px}
+  .badge-id{font-size:6px}
+  .badge-name{bottom:65px}
+  .badge-hint{bottom:20px}
+}
+@media(max-width:376px){.badge-sleeve{left:18px;width:calc(100vw - 36px);margin-left:0}}
+@media(max-width:380px){.badge-cn{font-size:27px}.badge-paper{padding-inline:13px}.badge-main{gap:8px}.badge-paper-bottom{padding-left:9px}}
+
+/* Desktop hero occupies the remaining viewport below the sticky navigation. */
+@media(min-width:761px){
+  .badge-hero{--hero-name-size:clamp(80px,10.3vw,155px);height:max(575px,calc(100svh - 88px))}
+  .badge-hero:before{top:calc(75% - 336px)}
+  .badge-sleeve{top:calc(75% - 255px)}
+  .badge-name{top:calc(75% - 42px);bottom:auto;font-size:var(--hero-name-size)}
+  .badge-hint{top:calc(75% - 42px + var(--hero-name-size) + 12px);bottom:auto}
+}
+
+/* Four light folders follow an implied orbit around the hanging badge. */
+.folder-orbit-lines{position:absolute;z-index:0;left:50%;top:50%;width:min(90vw,1080px);height:min(67vh,670px);border:1px solid #dfe5df73;border-radius:50%;transform:translate(-50%,-46%);pointer-events:none}
+.folder-orbit-lines:before{content:'';position:absolute;inset:12% 15%;border:1px solid #dfe5df68;border-radius:50%}
+.orbit-folder{--folder-tilt:0deg;--folder-color:#e4e9e5;--folder-light:#f9faf8;position:absolute;z-index:1;display:block;width:clamp(155px,13vw,205px);aspect-ratio:1.52;transform:rotate(var(--folder-tilt));transform-origin:50% 70%;transition:transform .35s ease,filter .35s ease;animation:folder-float 7s ease-in-out infinite;filter:drop-shadow(4px 12px 14px #30433b16)}
+.orbit-folder:hover,.orbit-folder:focus-visible{transform:rotate(0deg) scale(1.06);filter:drop-shadow(5px 16px 18px #30433b25)}
+.orbit-folder:focus-visible{outline:2px solid #29AEE1;outline-offset:7px;border-radius:12px}
+.folder-papers{position:absolute;z-index:0;inset:0;pointer-events:none}
+.folder-papers i{position:absolute;display:block;top:4%;left:21%;width:43%;height:60%;border:1px solid #e6e9e8;border-radius:6px 7px 2px 2px;background:linear-gradient(145deg,#fff,#f4f6f7);box-shadow:0 2px 5px #20362a16;transform:rotate(-11deg)}
+.folder-papers i:nth-child(2){left:46%;top:8%;transform:rotate(9deg)}
+.folder-papers i:after{content:'';position:absolute;left:17%;right:17%;top:23%;height:31%;background:linear-gradient(#b9c5c633 0 19%,transparent 19% 45%,#b9c5c633 45% 62%,transparent 62% 84%,#b9c5c633 84%);border-radius:3px}
+.folder-face{position:absolute;z-index:1;inset:31% 0 0;display:flex;align-items:flex-end;justify-content:space-between;padding:0 12% 12%;border:1px solid #ffffff9c;border-radius:10px 11px 12px 12px;background:linear-gradient(135deg,var(--folder-light),var(--folder-color) 64%,#cdd8d3);box-shadow:inset 1px 1px 0 #ffffffc9,inset -1px -1px 0 #516d6020,0 8px 15px #223d3315;color:#34413c;font-size:16px;font-weight:600;letter-spacing:-.03em;white-space:nowrap}
+.folder-face:before{content:'';position:absolute;z-index:-1;left:-1px;top:-15px;width:44%;height:20px;border:1px solid #ffffffa8;border-bottom:0;border-radius:7px 8px 0 0;background:var(--folder-light)}
+.folder-face:after{content:'';position:absolute;inset:1px;border-radius:9px 10px 11px 11px;background:linear-gradient(115deg,#ffffff82,transparent 47%,#ffffff36 70%,transparent);pointer-events:none}
+.folder-face small{font-size:9px;font-weight:500;letter-spacing:.08em;opacity:.62}
+.orbit-folder-skills{--folder-tilt:-10deg;--folder-color:#f7dc80;--folder-light:#fff8d7;left:20px;top:calc(50% - 145px);animation-delay:-1s}
+.orbit-folder-portfolio{--folder-tilt:9deg;--folder-color:#a9d9b8;--folder-light:#ecf9eb;right:20px;top:calc(50% - 130px);animation-delay:-3s}
+.orbit-folder-experience{--folder-tilt:7deg;--folder-color:#9dd2ed;--folder-light:#e9f7fc;left:clamp(28px,10vw,145px);top:calc(50% - 10px);animation-delay:-5s}
+.orbit-folder-contact{--folder-tilt:-8deg;--folder-color:#f2b3a6;--folder-light:#fff4ef;right:clamp(28px,10vw,145px);top:50%;animation-delay:-2s}
+@keyframes folder-float{50%{translate:0 -7px}}
+@media(max-height:800px) and (min-width:761px){.orbit-folder{width:125px}.folder-face{font-size:12px}.orbit-folder-skills,.orbit-folder-portfolio{top:220px}.orbit-folder-experience,.orbit-folder-contact{top:calc(50% + 10px)}}
+@media(max-width:760px){
+  .folder-orbit-lines,.orbit-folder-experience,.orbit-folder-contact{display:none}
+  .orbit-folder{width:105px;top:165px;filter:drop-shadow(2px 7px 9px #30433b14)}
+  .orbit-folder-skills{left:14px}
+  .orbit-folder-portfolio{right:14px}
+  .folder-face{font-size:10px;border-radius:7px;padding:0 10% 12%}
+  .folder-face:before{top:-10px;height:14px;border-radius:6px 7px 0 0}
+  .folder-face small{font-size:6px}
+  .folder-papers i{border-radius:5px 6px 2px 2px}
+}
+@media(prefers-reduced-motion:reduce){.orbit-folder{animation:none}}
+
+/* Show both education stages in the first screen. */
+.hero-education-item+.hero-education-item{margin-top:15px}
+.hero-education-item .profile-label{margin-bottom:3px}
+.hero-education-item strong{display:block}
+.hero-education-item small{margin-top:3px}
+@media(max-width:760px){
+  .hero-corner-right{width:calc(50% - 12px)}
+  .hero-education-item+.hero-education-item{margin-top:9px}
+  .hero-education-item .profile-label{margin-bottom:2px}
+  .hero-education-item small{margin-top:2px}
+  .badge-hero .hero-scroll{top:188px}
+}
+
+/* Keep the longer English education copy clear on narrow screens. */
+@media(max-width:760px){
+  .badge-hero .hero-scroll{display:none}
+  html[lang="en"] .hero-availability{display:none}
+  html[lang="en"] .hero-corner-right{line-height:1.38}
+  html[lang="en"] .hero-education-item+.hero-education-item{margin-top:5px}
+  html[lang="en"] .hero-education-item .profile-label{margin-bottom:1px}
+  html[lang="en"] .hero-education-item small{margin-top:1px;font-size:8.5px;line-height:1.35}
+}
+
+/* Bring the desktop folder orbit closer to the badge. */
+@media(min-width:1100px){
+  .orbit-folder-skills{left:10vw}
+  .orbit-folder-portfolio{right:10vw}
+  .orbit-folder-experience{left:16vw}
+  .orbit-folder-contact{right:16vw}
+}
+
+
+/* Woven five-colour lanyard and a matte plastic / polished metal clasp. */
+.badge-cord{filter:drop-shadow(2px 3px 2px #3e4b4b30)}
+.cord-edge{stroke:#788481;stroke-width:15;opacity:.62}
+.cord-core{stroke:#f0f1ed;stroke-width:12}
+.cord-color{stroke:url(#lanyard-spectrum);stroke-width:10;opacity:.55}
+.cord-weave{stroke:url(#lanyard-fabric);stroke-width:9;opacity:.8;stroke-dasharray:none}
+.badge-sleeve:before{top:7px;left:calc(50% - 29px);width:58px;height:10px;border:1px solid #aab0ad;border-radius:5px;background:linear-gradient(#e0e3e1,#aeb5b1 52%,#f7f8f5);box-shadow:inset 0 1px 2px #59645f55,0 1px #fff9}
+.badge-clip{top:-59px;left:50%;transform:translateX(-50%);width:58px;height:77px;padding:0;border:0;border-radius:0;background:none;box-shadow:none;pointer-events:none;z-index:5}
+.badge-clip:before{content:'';position:absolute;z-index:4;left:0;top:0;width:58px;height:35px;border:1px solid #c9cecb;border-radius:13px 13px 10px 10px;background:linear-gradient(115deg,#fdfdfb 0%,#e5e7e5 35%,#c8cdcb 78%,#f7f8f6 100%);box-shadow:inset 2px 2px 2px #fff, inset -2px -2px 3px #79848032,2px 4px 6px #26312e2b}
+.badge-clip:after{content:'';position:absolute;z-index:5;left:7px;top:30px;width:45px;height:4px;border-radius:0 0 50% 50%;background:linear-gradient(90deg,#737c7b,#1f2627 45%,#9ca3a0 75%,#303939);box-shadow:0 1px 1px #171c1e55}
+.clip-ring{position:absolute;z-index:1;left:12px;top:38px;width:34px;height:31px;border:4px solid #8d9694;border-radius:50%;background:transparent;box-shadow:inset 2px 1px 2px #242d2c8a,1px 2px 2px #25302e38,0 0 0 1px #d7dcda}
+.clip-ring:after{content:'';position:absolute;inset:1px;border-top:2px solid #fff9;border-left:1px solid #fff8;border-radius:50%}
+.clip-swivel{position:absolute;z-index:3;left:21px;top:29px;width:16px;height:27px;border:2px solid #78817f;border-radius:8px;background:linear-gradient(90deg,#9da6a3,#fbfcfa 48%,#87918d);box-shadow:inset 1px 0 1px #fff,2px 2px 2px #24302b35}
+.clip-swivel:after{content:'';position:absolute;left:4px;top:10px;width:4px;height:4px;border-radius:50%;background:#5d6866;box-shadow:0 1px 1px #fff}
+.clip-anchor{position:absolute;z-index:2;left:15px;top:57px;width:28px;height:17px;border:1px solid #a4adab;border-radius:5px 5px 7px 7px;background:linear-gradient(105deg,#c0c8c4,#f9faf8 42%,#aeb9b4);box-shadow:inset 1px 1px #fff,1px 2px 3px #2937333d}
+@media(max-width:760px){
+  .cord-edge{stroke-width:12}
+  .cord-core{stroke-width:10}
+  .cord-color{stroke-width:8}
+  .cord-weave{stroke-width:7}
+}
+
+
+/* Layered nylon webbing: raised edges, woven ribs, side stitches and soft cast shadow. */
+.cord-shadow{stroke:#40574c;stroke-width:27;opacity:.18;filter:blur(3px);transform:translate(2px,3px)}
+.cord-edge{stroke:#566d63;stroke-width:21;opacity:.58}
+.cord-core{stroke:#e9ede7;stroke-width:18}
+.cord-color{stroke-width:16;opacity:.7}
+.cord-stitch{stroke:#f8fff8;stroke-width:18;stroke-dasharray:1.4 4;opacity:.6}
+.cord-weave{stroke-width:15;opacity:.96}
+.cord-glint{stroke:#fff;stroke-width:3;opacity:.18;filter:blur(.65px)}
+@media(max-width:760px){
+  .cord-shadow{stroke-width:21}
+  .cord-edge{stroke-width:17}
+  .cord-core{stroke-width:15}
+  .cord-color{stroke-width:13}
+  .cord-stitch{stroke-width:15}
+  .cord-weave{stroke-width:12}
+  .cord-glint{stroke-width:2}
+}
+
+
+/* Softer ribbed nylon surface, with dyed fibres over a deeper woven base. */
+.cord-shadow{stroke:#34473f;opacity:.2;filter:blur(3.5px)}
+.cord-edge{stroke:#4d6259;opacity:.72}
+.cord-core{stroke:#d2dcd5}
+.cord-color{opacity:.78}
+.cord-stitch{opacity:.28}
+.cord-weave{opacity:.9}
+.cord-glint{opacity:.1}
+
+
+/* Physical flat woven bands replace the round SVG strokes. */
+.badge-cord{filter:none}
+.badge-cord .band-shadow{fill:#35483f;opacity:.21;filter:blur(3.5px);transform:translate(2.5px,3.5px)}
+.badge-cord .band-base{fill:#bfc9c2}
+.badge-cord .band-color.band-left{fill:url(#lanyard-left-color)}
+.badge-cord .band-color.band-right{fill:url(#lanyard-right-color)}
+.badge-cord .band-color{opacity:.62}
+.badge-cord .band-fabric{fill:url(#lanyard-fabric);opacity:.92}
+.badge-cord .band-edge-light{fill:none;stroke:#ffffffb8;stroke-width:1.2;filter:drop-shadow(0 0 1px #ffffff6b)}
+.badge-cord .band-edge-dark{fill:none;stroke:#455b50a8;stroke-width:1.1}
+
+.badge-cord .band-fabric{filter:url(#lanyard-roughness)}
+
+
+/* Satin webbing based on the white lanyard reference. */
+.badge-cord .band-shadow{fill:#6d7773;opacity:.13;filter:blur(4px);transform:translate(2px,3px)}
+.badge-cord .band-base{fill:url(#lanyard-satin)}
+.badge-cord .band-color{opacity:.19}
+.badge-cord .band-fabric{display:none;filter:none}
+.badge-cord .band-edge-light{stroke:#ffffff9c;stroke-width:1.35;filter:blur(.55px)}
+.badge-cord .band-edge-dark{stroke:#9da8a3a8;stroke-width:1.15;filter:blur(.55px)}
+
+
+/* Taut matte webbing with overlapping layers, subtle fibre grain and five-colour dye. */
+.badge-cord .band-shadow{fill:#111819;opacity:.35;filter:blur(2px);transform:translate(2px,2px)}
+.badge-cord .band-base{fill:url(#lanyard-webbing)}
+.badge-cord .band-left .band-color{fill:url(#lanyard-left-color)}
+.badge-cord .band-right .band-color{fill:url(#lanyard-right-color)}
+.badge-cord .band-color{opacity:.52}
+.badge-cord .band-fabric{display:block;fill:url(#lanyard-fabric);opacity:.52;filter:none}
+.badge-cord .band-edge-light{stroke:#ffffff61;stroke-width:.75;filter:none}
+.badge-cord .band-edge-dark{stroke:#0e1515c9;stroke-width:1.7;filter:none}
+.badge-cord .band-right .band-shadow{opacity:.5;transform:translate(-2px,2px)}
+
+
+/* Light dyed cloth: broad diffuse sheen, raised edges and fine textile fibres. */
+.badge-cord .band-shadow{fill:#54645b;opacity:.27;filter:blur(2.8px);transform:translate(2px,2.5px)}
+.badge-cord .band-color{opacity:.29}
+.badge-cord .band-fabric{opacity:.72}
+.badge-cord .band-edge-light{stroke:#ffffffd6;stroke-width:1.05;filter:blur(.3px)}
+.badge-cord .band-edge-dark{stroke:#697f73ad;stroke-width:1.45;filter:blur(.3px)}
+.badge-cord .band-right .band-shadow{opacity:.36;transform:translate(-2px,2.5px)}
+
+
+/* Slightly open the hero name tracking. */
+.badge-name{letter-spacing:-.035em}
+
+/* Five distinct folder colours around the badge: light coral red at right, light pink near centre. */
+.orbit-folder-contact .folder-face{background:linear-gradient(135deg,#fff4ef,#f2b3a6 64%,#e8a094)}
+.orbit-folder-profile{--folder-tilt:-6deg;--folder-color:#f8dce9;--folder-light:#fff6fa;left:calc(50% - clamp(285px,17vw,350px));top:calc(50% - 185px);width:clamp(140px,11vw,175px);animation-delay:-4s}
+.orbit-folder-profile .folder-face{background:linear-gradient(135deg,#fff6fa,#f8dce9 64%,#f1cada)}
+@media(max-width:1099px){.orbit-folder-profile{display:none}}
+#videoGrid{scroll-margin-top:145px}
+
+#personal-info{scroll-margin-top:100px}
+
+/* Keep the internship status above the orbiting skills folder on desktop. */
+@media(min-width:761px){.hero-availability{top:165px;z-index:3}}
+@media(max-width:760px){.hero-availability{top:120px;z-index:3}}
+.hero-corner-right .school-name-short{display:none}
+@media(max-width:760px){html[lang="en"] .hero-corner-right .school-name-full{display:none}html[lang="en"] .hero-corner-right .school-name-short{display:inline}}

@@ -36,13 +36,13 @@
 
   function guideLabel(state) {
     var zh = {
-      home: "前往个人简介", about: "前往建筑设计项目", architecture: "前往荣誉奖项",
-      others: "前往实习经历", experience: "前往联系部分", contact: "返回首页", hero: "前往项目说明", brief: "前往项目图片",
+      home: "前往个人简介", about: "前往建筑设计项目", architecture: "前往实习经历",
+      experience: "前往荣誉奖项", others: "前往联系部分", contact: "返回首页", hero: "前往项目说明", brief: "前往项目图片",
       media: "前往项目导航", next: "进入下一个项目"
     };
     var en = {
-      home: "Go to profile", about: "Go to architecture projects", architecture: "Go to honors",
-      others: "Go to experience", experience: "Go to contact", contact: "Back to home", hero: "Go to project brief", brief: "Go to project images",
+      home: "Go to profile", about: "Go to architecture projects", architecture: "Go to experience",
+      experience: "Go to honors", others: "Go to contact", contact: "Back to home", hero: "Go to project brief", brief: "Go to project images",
       media: "Go to project navigation", next: "Open next project"
     };
     return (currentLang === "zh" ? zh : en)[state] || (currentLang === "zh" ? "继续浏览" : "Continue");
@@ -278,7 +278,7 @@
 
   function navigateWithGuide() {
     if (page === "home") {
-      var order = ["home", "about", "architecture", "others", "experience", "contact"];
+      var order = ["home", "about", "architecture", "experience", "others", "contact"];
       var index = order.indexOf(activeGuideState);
       var targetId = activeGuideState === "contact" ? "home" : order[Math.min(index + 1, order.length - 1)];
       var target = document.getElementById(targetId);
@@ -302,7 +302,7 @@
     var position = window.scrollY + window.innerHeight * .38;
     var active = sections[0] ? sections[0].id : "home";
     sections.forEach(function (section) { if (position >= section.offsetTop) active = section.id; });
-    var index = Math.max(0, ["home", "about", "architecture", "others", "experience", "contact"].indexOf(active));
+    var index = Math.max(0, ["home", "about", "architecture", "experience", "others", "contact"].indexOf(active));
     setGuideState(active, index);
   }
 
@@ -472,7 +472,7 @@
         return '<p>' + highlightExperienceText(paragraph, item.detailHighlights || item.highlights || [], usedTerms) + '</p>';
       }).join("");
       return '<article class="experience-item reveal" style="--experience-accent:' + ACCENTS[index % ACCENTS.length] + '">' +
-        '<span class="experience-period">' + esc(experience.period) + '</span>' +
+        '<span class="experience-period">' + esc(currentLang === 'en' && experience.periodEn ? experience.periodEn : experience.period) + '</span>' +
         '<div><h3>' + esc(item.company) + '</h3><p class="experience-role">' + esc(item.role) + '</p>' +
         '<div class="experience-tags" aria-hidden="true">' + highlights + '</div>' +
         '<p class="experience-detail">' + esc(item.detail) + '</p>' +

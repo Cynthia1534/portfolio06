@@ -1,21 +1,21 @@
 window.PORTFOLIO = {
   translations: {
     zh: {
-      nav: { home: "首页", about: "简介", architecture: "设计", others: "奖项", experience: "经历", contact: "申请" },
-      common: { scroll: "滚动", view: "查看项目", back: "返回项目", overview: "项目概览", next: "下一个项目", previous: "上一个项目", close: "关闭" },
+      nav: { home: "首页", about: "简介", architecture: "设计", others: "奖项", experience: "经历", contact: "联系" },
+      common: { scroll: "滚动", view: "查看项目", back: "返回视觉作品", overview: "项目概览", next: "下一个项目", previous: "上一个项目", close: "关闭" },
       hero: {
-        eyebrow: "钟颍杉 · 建筑作品集 / 2026",
+        eyebrow: "钟颍杉 · 建筑设计实习作品集 / 2026",
         rolePrefix: "北京工业大学",
-        roles: ["建筑设计学习者", "计算设计探索者", "智能设计实践者"],
-        description: "<span class=\"hero-copy-kicker\">建筑学五年制本科生</span><span class=\"hero-copy-statement\">关注计算性设计与建筑创新<br>善于融合参数化方法与智能技术拓展设计思路</span>",
+        roles: ["建筑设计实践者", "计算设计探索者", "智能设计实践者"],
+        description: "<span class=\"hero-copy-kicker\">建筑学五年制本科生</span><span class=\"hero-copy-statement\">聚焦建筑方案设计与数字化工具<br>在项目实践中推进方案推演与成果表达</span>",
         primary: "查看设计项目",
         secondary: "个人简介"
       },
       about: {
         eyebrow: "01 / 个人简介",
         title: "从城市出发<br><em class=\"font-display\">回应真实生活</em>",
-        lede: "钟颍杉（Cynthia），北京工业大学建筑学五年制本科生，关注城市更新、公共空间、居住环境、室内改造、文化空间与数字技术等多尺度议题。",
-        statement: "关注计算性设计与智能技术的跨领域应用，擅长融合参数化方法、AI Agent 与系统化思维，构建更高效、更具逻辑性与创新性的解决路径。",
+        lede: "钟颍杉（Cynthia），北京工业大学建筑学五年制本科生。曾参与酒店与高校学生宿舍项目的方案设计与深化，关注场地分析、平面组织、体量推敲和数字化表达，现面向建筑设计实习岗位求职。",
+        statement: "以方案设计回应场地与需求<br>用数字工具推进推演与表达",
         educationLabel: "教育",
         education: "北京工业大学 · 建筑学（五年制）",
         experienceLabel: "成绩",
@@ -28,57 +28,57 @@ window.PORTFOLIO = {
         modelingSkills: "<strong class=\"skill-dot\">·</strong> 熟练运用 <strong>AutoCAD、SketchUp、Rhino、Revit</strong> 等建筑设计与建模软件，具备二维制图、三维建模、建筑体量推演及场景搭建能力。<br><strong class=\"skill-dot\">·</strong> 熟练掌握 <strong>Grasshopper</strong> 参数化设计，可进行参数逻辑搭建、形体生成、立面控制及方案快速迭代。<br><strong class=\"skill-dot\">·</strong> 熟练运用 <strong>Twinmotion</strong> 等建筑可视化工具，具备材质、灯光、场景搭建及建筑效果图表现能力。",
         graphicLabel: "平面设计与视频制作",
         graphicSkills: "<strong class=\"skill-dot\">·</strong> 能够运用 PS、AI 制作海报与作品集图面，具备良好的版式审美和视觉表达能力。<br><strong class=\"skill-dot\">·</strong> 熟练运用剪映、PR、AE 等剪辑软件，能够完成脚本撰写、画面调色、动态歌词排版与视频输出。",
-        statProjects: "核心课程设计",
+        statProjects: "设计项目",
         statYears: "平均绩点",
         statFocus: "竞赛荣誉"
       },
       projects: {
         eyebrow: "02 / 作品集",
-        title: "设计<em class=\"font-display\">研究选集</em>",
-        lede: "四个本科阶段项目呈现从场地阅读、问题定义、概念推演到图纸与模型表达的完整设计过程。"
+        title: "建筑<em class=\"font-display\">设计选集</em>",
+        lede: "四个本科设计项目覆盖酒店、城市更新、居住环境与适老化空间，呈现场地分析、方案推演和图纸表达的完整过程。"
       },
       others: {
-        eyebrow: "03 / 荣誉奖项",
+        eyebrow: "04 / 荣誉奖项",
         title: "持续探索<br><em class=\"font-display\">与专业成长</em>",
         lede: "本科阶段参与建筑、城市设计、文化创意与适老化设计竞赛，并在省级与国家级赛事中获奖。"
       },
       experience: {
-        eyebrow: "04 / 实习经历",
-        lede: "实习经历涵盖建筑设计、创意传播与 AI 内容产品等方向，呈现我在空间思维、视觉表达与新技术应用之间的综合实践。"
+        eyebrow: "03 / 实习经历",
+        lede: "在北京市建筑设计研究院参与酒店与宿舍项目的方案推演、Rhino 建模及多专业协同。"
       },
       contact: {
-        eyebrow: "05 / 申请与联系",
-        title: "继续学习<br><em class=\"font-display\">继续提问</em>",
-        lede: "本作品集用于建筑学研究生申请。欢迎就学习经历、项目过程与研究兴趣与我联系。",
+        eyebrow: "05 / 求职与联系",
+        title: "期待加入<br><em class=\"font-display\">设计现场</em>",
+        lede: "目前面向建筑设计实习岗位求职。欢迎通过邮箱或电话联系，进一步了解我的设计项目、实习经历与专业技能。",
         locationLabel: "所在地",
         location: "北京 / 北京工业大学",
         statusLabel: "状态",
-        status: "建筑学五年制本科在读",
+        status: "建筑设计实习求职中",
         marquee: "观察 · 研究 · 推演 · 制作 · 表达 · "
       },
       projectPage: {
-        type: "建筑类型",
-        description: "建筑设计说明",
-        format: "设计方式",
+        type: "项目类型",
+        description: "项目说明",
+        format: "项目性质",
         placeholder: "作品集页面"
       }
     },
     en: {
-      nav: { home: "Home", about: "Profile", architecture: "Studios", others: "Honors", experience: "Experience", contact: "Apply" },
-      common: { scroll: "Scroll", view: "View project", back: "Back to projects", overview: "Project overview", next: "Next project", previous: "Previous project", close: "Close" },
+      nav: { home: "Home", about: "Profile", architecture: "Studios", others: "Honors", experience: "Experience", contact: "Contact" },
+      common: { scroll: "Scroll", view: "View project", back: "Back to visual work", overview: "Project overview", next: "Next project", previous: "Previous project", close: "Close" },
       hero: {
-        eyebrow: "Zhong Yingshan · Architecture Portfolio / 2026",
+        eyebrow: "Zhong Yingshan · Architecture Internship Portfolio / 2026",
         rolePrefix: "BJUT",
-        roles: ["Architecture Student", "Computational Design Explorer", "AI Design Practitioner"],
-        description: "<span class=\"hero-copy-kicker\">A five-year architecture student.</span><span class=\"hero-copy-statement\">Focused on computational design and architectural innovation, integrating parametric methods and intelligent technologies to expand design thinking.</span>",
+        roles: ["Architectural Design Intern", "Computational Design Explorer", "AI Design Practitioner"],
+        description: "<span class=\"hero-copy-kicker\">A five-year architecture student.</span><span class=\"hero-copy-statement\">Focused on architectural design and digital workflows, using parametric and AI tools to develop options and communicate design ideas.</span>",
         primary: "View Projects",
-        secondary: "Academic Profile"
+        secondary: "Professional Profile"
       },
       about: {
         eyebrow: "01 / Personal Profile",
         title: "Begin with the city<br><em class=\"font-display\">respond to real life</em>",
-        lede: "Zhong Yingshan (Cynthia) is a five-year architecture student at Beijing University of Technology, exploring urban renewal, public space, housing, interiors, cultural space and digital tools across architectural scales.",
-        statement: "I integrate AI tools into the design workflow, building an efficient personal process from concept framing and design development to visual representation.",
+        lede: "Zhong Yingshan (Cynthia) is a five-year architecture student at Beijing University of Technology. She has contributed to hotel and university dormitory projects through design development, Rhino modeling and project communication, and is seeking an architectural design internship.",
+        statement: "Designing from site and brief<br>developing ideas through digital tools",
         educationLabel: "Education",
         education: "Beijing University of Technology · 5-year Architecture",
         experienceLabel: "Results",
@@ -91,36 +91,36 @@ window.PORTFOLIO = {
         modelingSkills: "<strong class=\"skill-dot\">·</strong> Proficient with architectural design and modeling software including <strong>AutoCAD, SketchUp, Rhino and Revit</strong>, covering 2D drafting, 3D modeling, massing studies and scene building.<br><strong class=\"skill-dot\">·</strong> Proficient in <strong>Grasshopper</strong> parametric design for logic construction, form generation, facade control and rapid design iteration.<br><strong class=\"skill-dot\">·</strong> Proficient with architectural visualization tools including <strong>Twinmotion</strong>, with experience in materials, lighting, scene building and architectural rendering.",
         graphicLabel: "Graphic Design & Video",
         graphicSkills: "<strong class=\"skill-dot\">·</strong> Able to use Photoshop and Illustrator for posters and portfolio drawings, with strong layout sense and visual judgment.<br><strong class=\"skill-dot\">·</strong> Experienced with Jianying, Premiere and After Effects for scripting, color grading, dynamic lyric layout and video production.",
-        statProjects: "Core Design Studios",
+        statProjects: "Design Projects",
         statYears: "GPA",
         statFocus: "Design Awards"
       },
       projects: {
         eyebrow: "02 / Portfolio",
-        title: "Selected <em class=\"font-display\">design research</em>",
-        lede: "Four undergraduate projects present a complete process from site reading and question framing to iteration, drawings and models."
+        title: "Selected <em class=\"font-display\">architecture projects</em>",
+        lede: "Four undergraduate projects across hospitality, urban regeneration, housing and age-friendly design show site analysis, design development and visual communication."
       },
       others: {
-        eyebrow: "03 / Honors",
+        eyebrow: "04 / Honors",
         title: "Continued exploration<br><em class=\"font-display\">and growth</em>",
         lede: "Awards across architecture, urban design, cultural creativity and age-friendly design at provincial and national competitions."
       },
       experience: {
-        eyebrow: "04 / Internship Experience",
-        lede: "These experiences span architectural design, creative communication and AI-driven content products, reflecting an integrated practice across spatial thinking, visual expression and emerging technologies."
+        eyebrow: "03 / Internship Experience",
+        lede: "Architectural design experience at BIAD: hotels, dormitories, Rhino modeling and multidisciplinary coordination."
       },
       contact: {
-        eyebrow: "05 / Application & Contact",
-        title: "Keep learning<br><em class=\"font-display\">keep questioning</em>",
-        lede: "This portfolio supports my graduate architecture applications. Please get in touch to discuss my background, design process and research interests.",
+        eyebrow: "05 / Careers & Contact",
+        title: "Ready to join<br><em class=\"font-display\">the design process</em>",
+        lede: "I am seeking an architectural design internship. Please contact me by email or phone to discuss my projects, internship experience and design skills.",
         locationLabel: "Based in",
         location: "Beijing / Beijing University of Technology",
         statusLabel: "Status",
-        status: "Five-year Architecture Student",
+        status: "Seeking an Architecture Internship",
         marquee: "OBSERVE · RESEARCH · ITERATE · MAKE · REPRESENT · "
       },
       projectPage: {
-        type: "Architecture Type",
+        type: "Project Type",
         description: "Design Statement",
         format: "Project Format",
         placeholder: "Portfolio Page"
@@ -129,10 +129,12 @@ window.PORTFOLIO = {
   },
   experiences: [
     {
-      period: "2026.06–2026.10（预计）",
+      period: "2026.06–2026.10",
+      periodEn: "2026.06–2026.10",
       zh: {
         company: "北京市建筑设计研究院",
         role: "建筑设计实习生",
+        summary: "参与酒店和高校学生宿舍项目，负责方案推敲、Rhino 建模与成果表达。结合参数化和 AI 辅助工具推进设计迭代，并参与多专业协调。",
         detail: "参与酒店及高校学生宿舍等建筑项目的方案设计与深化，并结合参数化、AI 辅助工具及多专业协同推进设计优化与成果表达。",
         highlights: ["方案设计", "Rhino 建模", "参数化设计", "AI Agent", "多专业协同"],
         detailHighlights: ["酒店及高校学生宿舍", "AI 辅助工具", "跨专业协同与设计问题统筹能力"],
@@ -146,6 +148,7 @@ window.PORTFOLIO = {
       en: {
         company: "Beijing Institute of Architectural Design",
         role: "Architectural Design Intern",
+        summary: "Worked on hotel and university dormitory projects, from design exploration and Rhino modeling to presentation materials. Used parametric and AI tools in design iterations and joined multidisciplinary coordination.",
         detail: "Contributed to hotel and university dormitory projects through architectural design development, parametric and AI-assisted workflows, multidisciplinary coordination and project communication.",
         highlights: ["architectural design", "Rhino modeling", "parametric design", "AI Agent", "coordination"],
         detailHighlights: ["hotel and university dormitory projects", "AI-assisted tools", "Multidisciplinary coordination"],
@@ -162,6 +165,7 @@ window.PORTFOLIO = {
       zh: {
         company: "北京蓝色光标数据科技集团股份有限公司",
         role: "AI 产品实习生",
+        summary: "参与 AI 视频产品的内容策划、模板与分镜设计。撰写提示词、配置可替换内容，并测试生成效果、优化成片。",
         detail: "参与 AI 视频生成类产品的内容策划、模板设计、提示词撰写与效果测试，熟悉从创意构思到测试迭代的完整流程。",
         highlights: ["AI 视频生成", "内容策划", "模板设计", "提示词撰写", "效果测试"],
         details: [
@@ -174,6 +178,7 @@ window.PORTFOLIO = {
       en: {
         company: "BlueFocus Data Technology Group",
         role: "AI Product Intern",
+        summary: "Planned content and designed templates and storyboards for AI video products. Wrote prompts, organized replaceable fields and tested outputs for refinement.",
         detail: "Worked on AI video-generation products, covering content planning, template design, prompt writing and output testing.",
         highlights: ["AI video generation", "content planning", "template design", "prompt writing", "testing"],
         details: [
@@ -189,6 +194,7 @@ window.PORTFOLIO = {
       zh: {
         company: "上海飞书深诺数字科技集团股份有限公司",
         role: "创意实习生",
+        summary: "协助海外广告项目的需求梳理、进度跟进与素材质检。参与创意脚本和传播方案撰写，并根据反馈调整内容。",
         detail: "在海外广告项目中协助创意 PM 进行需求管理与执行支持，参与需求梳理、进度跟进、素材 QC 与创意脚本撰写。",
         highlights: ["海外广告", "需求管理", "创意脚本", "素材 QC", "市场趋势"],
         details: [
@@ -200,6 +206,7 @@ window.PORTFOLIO = {
       en: {
         company: "MeetSocial Group",
         role: "Creative Intern",
+        summary: "Supported overseas advertising projects through brief organization, progress tracking and asset review. Helped write creative scripts and campaign proposals, then refined content from feedback.",
         detail: "Supported overseas advertising projects through requirement management, execution support, creative scripts, progress tracking and material QC.",
         highlights: ["overseas advertising", "requirements", "creative scripts", "asset QC", "market trends"],
         details: [
@@ -214,6 +221,7 @@ window.PORTFOLIO = {
       zh: {
         company: "天下秀数字科技股份有限公司",
         role: "新媒体运营实习生",
+        summary: "运营公司旗下三个小红书账号，负责文案、配图和投流执行。参与公众号内容制作与发布，并协调设计、运营和市场团队。",
         detail: "负责公司旗下小红书账号运营，并参与公众号内容输出、封面设计、投流策略与跨部门协作执行。",
         highlights: ["小红书账号", "文案撰写", "配图设计", "投流策略", "跨部门协作"],
         details: [
@@ -225,6 +233,7 @@ window.PORTFOLIO = {
       en: {
         company: "Inmyshow Digital Technology",
         role: "New Media Operations Intern",
+        summary: "Operated three Xiaohongshu accounts, producing copy and visuals and supporting media placement. Also helped publish WeChat content and coordinated with design, operations and marketing teams.",
         detail: "Operated Xiaohongshu accounts and supported WeChat official-account content, cover design, media strategy and cross-team execution.",
         highlights: ["Xiaohongshu", "copywriting", "visual design", "media strategy", "cross-team work"],
         details: [
@@ -239,6 +248,7 @@ window.PORTFOLIO = {
       zh: {
         company: "乐视网信息技术股份有限公司",
         role: "AI 视频运营实习生",
+        summary: "围绕目标用户制作产品宣传视频，从受众调研和用户画像开始，完成脚本策划与 AI 素材生成。负责后期剪辑和成片优化。",
         detail: "负责产品宣传视频制作，围绕目标用户需求完成调研、用户画像、视频脚本、AI 素材生成与后期剪辑。",
         highlights: ["用户调研", "用户画像", "视频脚本", "AI 生成素材", "后期剪辑"],
         details: [
@@ -251,6 +261,7 @@ window.PORTFOLIO = {
       en: {
         company: "Le.com",
         role: "AI Video Operations Intern",
+        summary: "Produced product videos from audience research and personas through scripting and AI asset creation. Edited and refined the final videos.",
         detail: "Produced promotional videos through user research, personas, scripting, AI-generated assets and final editing.",
         highlights: ["user research", "persona", "video scripts", "AI assets", "editing"],
         details: [
